@@ -215,27 +215,37 @@ add_filter('woocommerce_checkout_fields', function ($fields) {
 	$fields['billing']['billing_address_1']['required'] = true;
 	$fields['billing']['billing_phone']['required'] = true;
 
+
+	/* Name field */
+    $fields['billing']['billing_first_name']['label']       = 'নাম';
+    $fields['billing']['billing_first_name']['placeholder'] = 'আপনার নাম লিখুন';
+    $fields['billing']['billing_first_name']['priority']    = 10;
+
+    /* Phone field */
+    $fields['billing']['billing_phone']['label']       = 'মোবাইল নাম্বার';
+    $fields['billing']['billing_phone']['placeholder'] = '+880 01xxx-xxxxxx';
+    $fields['billing']['billing_phone']['required']    = true;
+    $fields['billing']['billing_phone']['priority']    = 20;
+
+    /* Address field */
+    $fields['billing']['billing_address_1']['label']       = 'ঠিকানা';
+    $fields['billing']['billing_address_1']['placeholder'] = 'থানা: রামপুর, জেলা: ঢাকা';
+    $fields['billing']['billing_address_1']['priority']    = 30;
+
 	return $fields;
 });
-add_action('wp_enqueue_scripts', function () {
 
-	if (is_front_page()) {
+add_filter( 'gettext', 'bd_change_checkout_heading', 20, 3 );
+function bd_change_checkout_heading( $translated, $text, $domain ) {
+    if ( $domain === 'woocommerce' && $text === 'Billing details' ) {
+        return 'আপনার নাম, নাম্বার ও ঠিকানা দিন';
+    }
+    return $translated;
+}
 
-		// Core Woo scripts
-		wp_enqueue_script('wc-checkout');
-		wp_enqueue_script('wc-cart');
-		wp_enqueue_script('wc-cart-fragments');
-
-		// Ensure params are available
-		wp_localize_script(
-			'wc-checkout',
-			'wc_checkout_params',
-			array(
-				'ajax_url' => admin_url('admin-ajax.php')
-			)
-		);
-	}
-}, 20);
+add_filter( 'woocommerce_order_button_text', function() {
+    return '🛒 অর্ডার করুন';
+});
 
 
 add_action('wp_ajax_switch_checkout_product', 'switch_checkout_product');
@@ -312,3 +322,77 @@ function wc_product_price_html_by_id($product_id)
 
 	return $html;
 }
+
+
+
+/**
+ * Ultra-light WooCommerce mode:
+ * - Completely disables all WooCommerce emails
+ * - Prevents PHPMailer from ever loading
+ * - Blocks wp_mail() at the earliest possible point
+ * - Zero background email queue
+ * - Minimal CPU & memory usage
+ */
+
+// 1️⃣ Stop wp_mail BEFORE PHPMailer is initialized
+add_filter( 'pre_wp_mail', '__return_true', 0 );
+
+// 2️⃣ Disable ALL WooCommerce email triggers at source
+add_filter( 'woocommerce_email_enabled_new_order', '__return_false', 0 );
+add_filter( 'woocommerce_email_enabled_customer_processing_order', '__return_false', 0 );
+add_filter( 'woocommerce_email_enabled_customer_completed_order', '__return_false', 0 );
+add_filter( 'woocommerce_email_enabled_customer_invoice', '__return_false', 0 );
+add_filter( 'woocommerce_email_enabled_customer_note', '__return_false', 0 );
+add_filter( 'woocommerce_email_enabled_cancelled_order', '__return_false', 0 );
+add_filter( 'woocommerce_email_enabled_failed_order', '__return_false', 0 );
+
+// 3️⃣ Prevent WooCommerce background email queue entirely
+add_filter( 'woocommerce_defer_transactional_emails', '__return_false', 0 );
+
+// 4️⃣ Extra safety: remove email actions if already registered
+add_action( 'init', function () {
+    if ( class_exists( 'WC_Emails' ) ) {
+        remove_action( 'woocommerce_order_status_pending_to_processing', array( WC()->mailer(), 'send_transactional_email' ) );
+        remove_action( 'woocommerce_order_status_pending_to_completed', array( WC()->mailer(), 'send_transactional_email' ) );
+        remove_action( 'woocommerce_order_status_failed_to_processing', array( WC()->mailer(), 'send_transactional_email' ) );
+        remove_action( 'woocommerce_order_status_failed_to_completed', array( WC()->mailer(), 'send_transactional_email' ) );
+    }
+}, 0 );
+
+
+add_filter('woocommerce_is_checkout', function ($is_checkout) {
+    if (is_front_page()) {
+        return true;
+    }
+    return $is_checkout;
+});
+
+
+
+
+add_action('wp', function () {
+
+    if (is_admin() || !function_exists('WC')) {
+        return;
+    }
+
+    if (!is_front_page()) { // or your funnel page ID
+        return;
+    }
+
+    $default_product_id = 13;
+
+    // Validate product
+    if (!wc_get_product($default_product_id)) {
+        return;
+    }
+
+    // Prevent duplicate add
+    foreach (WC()->cart->get_cart() as $item) {
+        if ($item['product_id'] == $default_product_id) {
+            return;
+        }
+    }
+
+    WC()->cart->add_to_cart($default_product_id, 1);
+});
