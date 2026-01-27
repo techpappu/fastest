@@ -251,23 +251,18 @@ add_filter( 'woocommerce_order_button_text', function() {
 add_action('wp_ajax_switch_checkout_product', 'switch_checkout_product');
 add_action('wp_ajax_nopriv_switch_checkout_product', 'switch_checkout_product');
 
-function switch_checkout_product()
-{
+function switch_checkout_product() {
 
-	if (empty($_POST['product_id'])) {
-		wp_send_json_error();
-	}
+    $product_id = absint($_POST['product_id'] ?? 0);
 
-	$product_id = absint($_POST['product_id']);
+    if (!$product_id || !wc_get_product($product_id)) {
+        wp_send_json_error();
+    }
 
-	if (! wc_get_product($product_id)) {
-		wp_send_json_error();
-	}
+    WC()->cart->empty_cart();
+    WC()->cart->add_to_cart($product_id, 1);
 
-	WC()->cart->empty_cart();
-	WC()->cart->add_to_cart($product_id, 1);
-
-	wp_send_json_success();
+    wp_send_json_success();
 }
 
 
@@ -358,41 +353,66 @@ add_action( 'init', function () {
         remove_action( 'woocommerce_order_status_failed_to_completed', array( WC()->mailer(), 'send_transactional_email' ) );
     }
 }, 0 );
+//cartflow custom checkout shortcode
+add_shortcode('cartflow-custom', function ($atts) {
 
+    if (!class_exists('WooCommerce')) return '';
 
-add_filter('woocommerce_is_checkout', function ($is_checkout) {
-    if (is_front_page()) {
-        return true;
-    }
-    return $is_checkout;
+    $atts = shortcode_atts([
+        'default-product' => '',
+        'ids'             => '',
+    ], $atts);
+
+    $default_id  = absint($atts['default-product']);
+    $product_ids = array_filter(array_map('absint', explode(',', $atts['ids'])));
+
+    if (!$default_id || empty($product_ids)) return '';
+
+    ob_start();
+    ?>
+    <div class="order-form" data-default="<?php echo esc_attr($default_id); ?>">
+
+        <h2 class="form-title">আপনার পছন্দের প্যাকেজটি সিলেক্ট করুন</h2>
+
+        <div class="checkout-wrapper">
+            <div class="checkout-product-selector">
+
+                <?php foreach ($product_ids as $pid):
+                    $product = wc_get_product($pid);
+                    if (!$product) continue;
+                ?>
+                    <label>
+                        <input type="radio"
+                               name="checkout_product"
+                               value="<?php echo esc_attr($pid); ?>"
+                               <?php checked($pid, $default_id); ?>>
+
+                        <span>
+                            <?php echo esc_html($product->get_name()); ?><br>
+                            <?php echo $product->get_price_html(); ?>
+                        </span>
+
+                        <div>
+                            <?php echo $product->get_image('thumbnail'); ?>
+                        </div>
+                    </label>
+                <?php endforeach; ?>
+
+            </div>
+
+            <?php echo do_shortcode('[woocommerce_checkout]'); ?>
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
 });
 
+add_filter('woocommerce_is_checkout', function ($is_checkout) {
+    global $post;
 
-
-
-add_action('wp', function () {
-
-    if (is_admin() || !function_exists('WC')) {
-        return;
+    if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'cartflow-custom')) {
+        return true;
     }
 
-    if (!is_front_page()) { // or your funnel page ID
-        return;
-    }
-
-    $default_product_id = 13;
-
-    // Validate product
-    if (!wc_get_product($default_product_id)) {
-        return;
-    }
-
-    // Prevent duplicate add
-    foreach (WC()->cart->get_cart() as $item) {
-        if ($item['product_id'] == $default_product_id) {
-            return;
-        }
-    }
-
-    WC()->cart->add_to_cart($default_product_id, 1);
+    return $is_checkout;
 });

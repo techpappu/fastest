@@ -236,7 +236,7 @@
                   <li>বিফলে মূল্য ফেরত</li>
 
                </ul>
-                <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+               <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
 
             </div>
 
@@ -340,94 +340,7 @@
 
       <div class="container">
 
-         <div class="order-form">
-
-            <h2 class="form-title">আপনার পছন্দের প্যাকেজটি সিলেক্ট করুন</h2>
-
-
-
-            <div class="checkout-wrapper">
-
-               <div class="checkout-product-selector">
-
-                  <?php
-
-                  $default_product_id = 13; // Change this to the desired default product ID
-
-                  $product_one_id = 13;
-
-                  $product_two_id = 15;
-
-                  $product_three_id = 17; ?>
-
-
-
-
-
-                  <label>
-
-                     <input type="radio" name="checkout_product" value="<?php echo $product_one_id; ?>" checked>
-
-                     <span><?php echo wc_get_product($product_one_id)->get_name() ?> <br> <?php echo wc_product_price_html_by_id($product_one_id) ?></span>
-
-                     <div>
-
-                        <?php wc_product_image_by_id($product_one_id); ?>
-
-                     </div>
-
-                  </label>
-
-
-
-                  <label>
-
-                     <input type="radio" name="checkout_product" value="<?php echo $product_two_id; ?>">
-
-                     <span><?php echo wc_get_product($product_two_id)->get_name() ?> <br> <?php echo wc_product_price_html_by_id($product_two_id) ?></span>
-
-                     <div>
-
-                        <?php wc_product_image_by_id($product_two_id); ?>
-
-                     </div>
-
-                  </label>
-
-                  <label>
-
-                     <input type="radio" name="checkout_product" value="<?php echo $product_three_id; ?>">
-
-                     <span><?php echo wc_get_product($product_three_id)->get_name() ?> <br> <?php echo wc_product_price_html_by_id($product_three_id) ?></span>
-
-                     <div>
-
-                        <?php wc_product_image_by_id($product_three_id); ?>
-
-                     </div>
-
-                  </label>
-
-               </div>
-
-               <?php
- 
-
-
-
-
-            //   if (wc_get_product($default_product_id)) {
-
-            //       WC()->cart->add_to_cart($default_product_id, 1);
-            //   }
-
-               ?>
-
-               <?php echo do_shortcode('[woocommerce_checkout]'); ?>
-
-            </div>
-
-         </div>
+         <?php echo do_shortcode('[cartflow-custom default-product="64" ids="64,62"]'); ?>
 
       </div>
 
@@ -448,64 +361,6 @@
    <?php get_footer(); ?>
 
    <script>
-      jQuery(function($) {
-
-
-
-         if (typeof wc_checkout_params === 'undefined') {
-
-            console.error('wc_checkout_params missing');
-
-            return;
-
-         }
-
-
-
-         function switchProduct(productId) {
-
-            $.post(wc_checkout_params.ajax_url, {
-
-               action: 'switch_checkout_product',
-
-               product_id: productId
-
-            }).done(function() {
-
-               $('body').trigger('update_checkout');
-
-            });
-
-         }
-
-
-
-         // Load default product
-
-         let defaultProduct = $('input[name="checkout_product"]:checked').val();
-
-         if (defaultProduct) {
-
-            switchProduct(defaultProduct);
-
-         }
-
-
-
-         // Change product
-
-         $('input[name="checkout_product"]').on('change', function() {
-
-            switchProduct($(this).val());
-
-         });
-
-
-
-      });
-
-
-
       (function() {
 
          const countdown = document.querySelector('.countdown');
