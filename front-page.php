@@ -1,5 +1,5 @@
 <?php
-
+define('DONOTCACHEPAGE', true);
 /**
 
  * The header for our theme
