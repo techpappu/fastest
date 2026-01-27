@@ -368,7 +368,7 @@ add_shortcode('cartflow-custom', function ($atts) {
 
     if (!$default_id || empty($product_ids)) return '';
 
-    ob_start();
+   
     ?>
     <div class="order-form" data-default="<?php echo esc_attr($default_id); ?>">
 
@@ -399,41 +399,21 @@ add_shortcode('cartflow-custom', function ($atts) {
                 <?php endforeach; ?>
 
             </div>
+			<?php 
+			WC()->cart->empty_cart();
+			
+			WC()->cart->add_to_cart($default_id, 1);?>
 
             <?php echo do_shortcode('[woocommerce_checkout]'); ?>
         </div>
     </div>
     <?php
-    return ob_get_clean();
 });
 
-add_action('wp', function() {
 
-    if (!function_exists('WC')) return;
-
-    global $post;
-
-    if (!$post instanceof WP_Post) return;
-
-    if (!has_shortcode($post->post_content, 'cartflow-custom')) return;
-
-    // Force this page as checkout
-    //add_filter('woocommerce_is_checkout', '__return_true');
-
-    // Add default product if cart empty
-    preg_match('/default-product="(\d+)"/', $post->post_content, $matches);
-    if (!empty($matches[1])) {
-        $default_id = absint($matches[1]);
-        $product = wc_get_product($default_id);
-        if ($product && WC()->cart->is_empty()) {
-            WC()->cart->add_to_cart($default_id, 1);
-        }
-    }
-
-});
 
 add_filter('woocommerce_is_checkout', function ($is_checkout) {
-    if (true) {
+    if (is_front_page() || true) {
 		return true;
 	}
 
