@@ -407,10 +407,32 @@ add_shortcode('cartflow-custom', function ($atts) {
     return ob_get_clean();
 });
 
-add_filter('woocommerce_is_checkout', function ($is_checkout) {
-    if (true) {
-		return true;
-	}
+add_action('template_redirect', function() {
 
-    return $is_checkout;
+    if (!function_exists('WC')) return;
+
+    global $wp_query;
+
+    // Only main query
+    if (!is_main_query()) return;
+
+    $post = $wp_query->get_queried_object();
+    if (!$post instanceof WP_Post) return;
+
+    if (has_shortcode($post->post_content, 'cartflow-custom')) {
+
+        // Force checkout page
+        add_filter('woocommerce_is_checkout', '__return_true');
+
+        // Add default product if cart empty
+        preg_match('/default-product="(\d+)"/', $post->post_content, $matches);
+        if (!empty($matches[1])) {
+            $default_id = absint($matches[1]);
+            if (WC()->cart->is_empty() && wc_get_product($default_id)) {
+                WC()->cart->add_to_cart($default_id, 1);
+            }
+        }
+
+    }
+
 });
