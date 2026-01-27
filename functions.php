@@ -418,7 +418,7 @@ add_action('wp', function() {
     if (!has_shortcode($post->post_content, 'cartflow-custom')) return;
 
     // Force this page as checkout
-    add_filter('woocommerce_is_checkout', '__return_true');
+    //add_filter('woocommerce_is_checkout', '__return_true');
 
     // Add default product if cart empty
     preg_match('/default-product="(\d+)"/', $post->post_content, $matches);
@@ -430,4 +430,12 @@ add_action('wp', function() {
         }
     }
 
+});
+
+add_filter('woocommerce_is_checkout', function ($is_checkout) {
+    if (true) {
+		return true;
+	}
+
+    return $is_checkout;
 });
