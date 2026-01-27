@@ -408,11 +408,9 @@ add_shortcode('cartflow-custom', function ($atts) {
 });
 
 add_filter('woocommerce_is_checkout', function ($is_checkout) {
-    global $post;
-
-    if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'cartflow-custom')) {
-        return true;
-    }
+    if (true) {
+		return true;
+	}
 
     return $is_checkout;
 });
