@@ -370,10 +370,6 @@ add_shortcode('cartflow-custom', function ($atts) {
 
 	if (!$default_id || empty($product_ids)) return '';
 
-	// Add default product to cart if empty
-	if (WC()->cart->is_empty()) {
-		WC()->cart->add_to_cart($default_id, 1);
-	}
 
 ?>
 	<div class="order-form" data-default="<?php echo esc_attr($default_id); ?>">
@@ -411,6 +407,45 @@ add_shortcode('cartflow-custom', function ($atts) {
 <?php
 });
 
+add_action('wp', function () {
+	if (is_admin() || wp_doing_ajax() || !function_exists('WC')) {
+		return;
+	}
+
+	global $post;
+
+	// Check if page has our shortcode
+	if (!is_a($post, 'WP_Post') || !has_shortcode($post->post_content, 'cartflow-custom')) {
+		return;
+	}
+
+	// Parse default-product attribute from shortcode
+	preg_match('/\[cartflow-custom[^\]]*default-product=["\']?(\d+)["\']?[^\]]*\]/', $post->post_content, $matches);
+
+	if (empty($matches[1])) {
+		return;
+	}
+
+	$default_product_id = absint($matches[1]);
+
+	// Validate product
+	if (!wc_get_product($default_product_id)) {
+		return;
+	}
+
+	if (!WC()->cart->is_empty()) {
+		return;
+	}
+
+	// Prevent duplicate add
+	foreach (WC()->cart->get_cart() as $item) {
+		if ($item['product_id'] == $default_product_id) {
+			return;
+		}
+	}
+
+	WC()->cart->add_to_cart($default_product_id, 1);
+});
 
 add_filter('woocommerce_is_checkout', function ($is_checkout) {
 	return true;

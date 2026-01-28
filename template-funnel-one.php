@@ -39,7 +39,7 @@ get_header('custom');
 
       <div class="container">
 
-         <?php echo do_shortcode('[cartflow-custom default-product="13" ids="13,15,17"]'); ?>
+        <?php the_content()?>
 
       </div>
 
