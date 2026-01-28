@@ -370,23 +370,10 @@ add_shortcode('cartflow-custom', function ($atts) {
 
 	if (!$default_id || empty($product_ids)) return '';
 
-	// Register cart logic ONCE
-	add_action('wp', function () use ($default_id) {
-
-		if (is_admin() || wp_doing_ajax() || !function_exists('WC')) {
-			return;
-		}
-
-		if (!WC()->cart->is_empty()) {
-			return;
-		}
-
+	if (WC()->cart->is_empty()) {
 		WC()->cart->add_to_cart($default_id, 1);
-	}, 20);
+	}
 
-	add_filter('woocommerce_is_checkout', function ($is_checkout) {
-		return true;
-	});
 ?>
 	<div class="order-form" data-default="<?php echo esc_attr($default_id); ?>">
 
@@ -421,4 +408,8 @@ add_shortcode('cartflow-custom', function ($atts) {
 		</div>
 	</div>
 <?php
+});
+
+add_filter('woocommerce_is_checkout', function ($is_checkout) {
+	return true;
 });
