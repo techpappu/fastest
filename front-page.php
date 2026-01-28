@@ -33,11 +33,11 @@ get_header('custom');
 
       <div class="hero-content">
 
-         <div class="logo">ROYAL</div>
+         <div class="logo">ROYAL Wellness</div>
 
          <div class="product-badge">NATURAL MIXED HONEY</div>
 
-         <h1 class="hero-title">রোয়াল মিক্স মধুতে</h1>
+         <h1 class="hero-title">ন্যাচারাল মিক্সড মধু</h1>
 
          <p class="hero-subtitle">সেরা মধুগুলোর সবচেয়ে শক্তিশালী কম্বিনেশন</p>
 
