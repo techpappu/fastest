@@ -217,52 +217,54 @@ add_filter('woocommerce_checkout_fields', function ($fields) {
 
 
 	/* Name field */
-    $fields['billing']['billing_first_name']['label']       = 'নাম';
-    $fields['billing']['billing_first_name']['placeholder'] = 'আপনার নাম লিখুন';
-    $fields['billing']['billing_first_name']['priority']    = 10;
+	$fields['billing']['billing_first_name']['label']       = 'নাম';
+	$fields['billing']['billing_first_name']['placeholder'] = 'আপনার নাম লিখুন';
+	$fields['billing']['billing_first_name']['priority']    = 10;
 
-    /* Phone field */
-    $fields['billing']['billing_phone']['label']       = 'মোবাইল নাম্বার';
-    $fields['billing']['billing_phone']['placeholder'] = '+880 01xxx-xxxxxx';
-    $fields['billing']['billing_phone']['required']    = true;
-    $fields['billing']['billing_phone']['priority']    = 20;
+	/* Phone field */
+	$fields['billing']['billing_phone']['label']       = 'মোবাইল নাম্বার';
+	$fields['billing']['billing_phone']['placeholder'] = '+880 01xxx-xxxxxx';
+	$fields['billing']['billing_phone']['required']    = true;
+	$fields['billing']['billing_phone']['priority']    = 20;
 
-    /* Address field */
-    $fields['billing']['billing_address_1']['label']       = 'ঠিকানা';
-    $fields['billing']['billing_address_1']['placeholder'] = 'থানা: রামপুর, জেলা: ঢাকা';
-    $fields['billing']['billing_address_1']['priority']    = 30;
+	/* Address field */
+	$fields['billing']['billing_address_1']['label']       = 'ঠিকানা';
+	$fields['billing']['billing_address_1']['placeholder'] = 'থানা: রামপুর, জেলা: ঢাকা';
+	$fields['billing']['billing_address_1']['priority']    = 30;
 
 	return $fields;
 });
 
-add_filter( 'gettext', 'bd_change_checkout_heading', 20, 3 );
-function bd_change_checkout_heading( $translated, $text, $domain ) {
-    if ( $domain === 'woocommerce' && $text === 'Billing details' ) {
-        return 'আপনার নাম, নাম্বার ও ঠিকানা দিন';
-    }
-    return $translated;
+add_filter('gettext', 'bd_change_checkout_heading', 20, 3);
+function bd_change_checkout_heading($translated, $text, $domain)
+{
+	if ($domain === 'woocommerce' && $text === 'Billing details') {
+		return 'আপনার নাম, নাম্বার ও ঠিকানা দিন';
+	}
+	return $translated;
 }
 
-add_filter( 'woocommerce_order_button_text', function() {
-    return '🛒 অর্ডার করুন';
+add_filter('woocommerce_order_button_text', function () {
+	return '🛒 অর্ডার করুন';
 });
 
 
 add_action('wp_ajax_switch_checkout_product', 'switch_checkout_product');
 add_action('wp_ajax_nopriv_switch_checkout_product', 'switch_checkout_product');
 
-function switch_checkout_product() {
+function switch_checkout_product()
+{
 
-    $product_id = absint($_POST['product_id'] ?? 0);
+	$product_id = absint($_POST['product_id'] ?? 0);
 
-    if (!$product_id || !wc_get_product($product_id)) {
-        wp_send_json_error();
-    }
+	if (!$product_id || !wc_get_product($product_id)) {
+		wp_send_json_error();
+	}
 
-    WC()->cart->empty_cart();
-    WC()->cart->add_to_cart($product_id, 1);
+	WC()->cart->empty_cart();
+	WC()->cart->add_to_cart($product_id, 1);
 
-    wp_send_json_success();
+	wp_send_json_success();
 }
 
 
@@ -330,92 +332,93 @@ function wc_product_price_html_by_id($product_id)
  */
 
 // 1️⃣ Stop wp_mail BEFORE PHPMailer is initialized
-add_filter( 'pre_wp_mail', '__return_true', 0 );
+add_filter('pre_wp_mail', '__return_true', 0);
 
 // 2️⃣ Disable ALL WooCommerce email triggers at source
-add_filter( 'woocommerce_email_enabled_new_order', '__return_false', 0 );
-add_filter( 'woocommerce_email_enabled_customer_processing_order', '__return_false', 0 );
-add_filter( 'woocommerce_email_enabled_customer_completed_order', '__return_false', 0 );
-add_filter( 'woocommerce_email_enabled_customer_invoice', '__return_false', 0 );
-add_filter( 'woocommerce_email_enabled_customer_note', '__return_false', 0 );
-add_filter( 'woocommerce_email_enabled_cancelled_order', '__return_false', 0 );
-add_filter( 'woocommerce_email_enabled_failed_order', '__return_false', 0 );
+add_filter('woocommerce_email_enabled_new_order', '__return_false', 0);
+add_filter('woocommerce_email_enabled_customer_processing_order', '__return_false', 0);
+add_filter('woocommerce_email_enabled_customer_completed_order', '__return_false', 0);
+add_filter('woocommerce_email_enabled_customer_invoice', '__return_false', 0);
+add_filter('woocommerce_email_enabled_customer_note', '__return_false', 0);
+add_filter('woocommerce_email_enabled_cancelled_order', '__return_false', 0);
+add_filter('woocommerce_email_enabled_failed_order', '__return_false', 0);
 
 // 3️⃣ Prevent WooCommerce background email queue entirely
-add_filter( 'woocommerce_defer_transactional_emails', '__return_false', 0 );
+add_filter('woocommerce_defer_transactional_emails', '__return_false', 0);
 
 // 4️⃣ Extra safety: remove email actions if already registered
-add_action( 'init', function () {
-    if ( class_exists( 'WC_Emails' ) ) {
-        remove_action( 'woocommerce_order_status_pending_to_processing', array( WC()->mailer(), 'send_transactional_email' ) );
-        remove_action( 'woocommerce_order_status_pending_to_completed', array( WC()->mailer(), 'send_transactional_email' ) );
-        remove_action( 'woocommerce_order_status_failed_to_processing', array( WC()->mailer(), 'send_transactional_email' ) );
-        remove_action( 'woocommerce_order_status_failed_to_completed', array( WC()->mailer(), 'send_transactional_email' ) );
-    }
-}, 0 );
+add_action('init', function () {
+	if (class_exists('WC_Emails')) {
+		remove_action('woocommerce_order_status_pending_to_processing', array(WC()->mailer(), 'send_transactional_email'));
+		remove_action('woocommerce_order_status_pending_to_completed', array(WC()->mailer(), 'send_transactional_email'));
+		remove_action('woocommerce_order_status_failed_to_processing', array(WC()->mailer(), 'send_transactional_email'));
+		remove_action('woocommerce_order_status_failed_to_completed', array(WC()->mailer(), 'send_transactional_email'));
+	}
+}, 0);
 //cartflow custom checkout shortcode
 add_shortcode('cartflow-custom', function ($atts) {
 
-    if (!class_exists('WooCommerce')) return '';
+	if (!class_exists('WooCommerce')) return '';
 
-    $atts = shortcode_atts([
-        'default-product' => '',
-        'ids'             => '',
-    ], $atts);
+	$atts = shortcode_atts([
+		'default-product' => '',
+		'ids'             => '',
+	], $atts);
 
-    $default_id  = absint($atts['default-product']);
-    $product_ids = array_filter(array_map('absint', explode(',', $atts['ids'])));
+	$default_id  = absint($atts['default-product']);
+	$product_ids = array_filter(array_map('absint', explode(',', $atts['ids'])));
 
-    if (!$default_id || empty($product_ids)) return '';
+	if (!$default_id || empty($product_ids)) return '';
 
-   
-    ?>
-    <div class="order-form" data-default="<?php echo esc_attr($default_id); ?>">
+	// Register cart logic ONCE
+	add_action('wp', function () use ($default_id) {
 
-        <h2 class="form-title">আপনার পছন্দের প্যাকেজটি সিলেক্ট করুন</h2>
+		if (is_admin() || wp_doing_ajax() || !function_exists('WC')) {
+			return;
+		}
 
-        <div class="checkout-wrapper">
-            <div class="checkout-product-selector">
+		if (!WC()->cart->is_empty()) {
+			return;
+		}
 
-                <?php foreach ($product_ids as $pid):
-                    $product = wc_get_product($pid);
-                    if (!$product) continue;
-                ?>
-                    <label>
-                        <input type="radio"
-                               name="checkout_product"
-                               value="<?php echo esc_attr($pid); ?>"
-                               <?php checked($pid, $default_id); ?>>
+		WC()->cart->add_to_cart($default_id, 1);
+	}, 20);
 
-                        <span>
-                            <?php echo esc_html($product->get_name()); ?><br>
-                            <?php echo $product->get_price_html(); ?>
-                        </span>
-
-                        <div>
-                            <?php echo $product->get_image('thumbnail'); ?>
-                        </div>
-                    </label>
-                <?php endforeach; ?>
-
-            </div>
-			<?php 
-			WC()->cart->empty_cart();
-			
-			WC()->cart->add_to_cart($default_id, 1);?>
-
-            <?php echo do_shortcode('[woocommerce_checkout]'); ?>
-        </div>
-    </div>
-    <?php
-});
-
-
-
-add_filter('woocommerce_is_checkout', function ($is_checkout) {
-    if (is_front_page() || true) {
+	add_filter('woocommerce_is_checkout', function ($is_checkout) {
 		return true;
-	}
+	});
+?>
+	<div class="order-form" data-default="<?php echo esc_attr($default_id); ?>">
 
-    return $is_checkout;
+		<h2 class="form-title">আপনার পছন্দের প্যাকেজটি সিলেক্ট করুন</h2>
+
+		<div class="checkout-wrapper">
+			<div class="checkout-product-selector">
+
+				<?php foreach ($product_ids as $pid):
+					$product = wc_get_product($pid);
+					if (!$product) continue;
+				?>
+					<label>
+						<input type="radio"
+							name="checkout_product"
+							value="<?php echo esc_attr($pid); ?>"
+							<?php checked($pid, $default_id); ?>>
+
+						<span>
+							<?php echo esc_html($product->get_name()); ?><br>
+							<?php echo $product->get_price_html(); ?>
+						</span>
+
+						<div>
+							<?php echo $product->get_image('thumbnail'); ?>
+						</div>
+					</label>
+				<?php endforeach; ?>
+
+			</div>
+			<?php echo do_shortcode('[woocommerce_checkout]'); ?>
+		</div>
+	</div>
+<?php
 });
