@@ -370,10 +370,9 @@ add_shortcode('cartflow-custom', function ($atts) {
 
 	if (!$default_id || empty($product_ids)) return '';
 
-	// Add default product to cart if empty
-	if (WC()->cart->is_empty()) {
-		WC()->cart->add_to_cart($default_id, 1);
-	}
+	// Set global variable for wp hook to use
+	global $cartflow_default_product;
+	$cartflow_default_product = $default_id;
 
 ?>
 	<div class="order-form" data-default="<?php echo esc_attr($default_id); ?>">
@@ -411,7 +410,69 @@ add_shortcode('cartflow-custom', function ($atts) {
 <?php
 });
 
+add_action('wp', function () {
 
+	if (is_admin() || wp_doing_ajax() || !function_exists('WC')) {
+		return;
+	}
+
+	if (!is_front_page()) { // or your funnel page ID
+		return;
+	}
+
+	$default_product_id = 13;
+
+	// Validate product
+	if (!wc_get_product($default_product_id)) {
+		return;
+	}
+	if (!WC()->cart->is_empty()) {
+		return;
+	}
+
+	// Prevent duplicate add
+	foreach (WC()->cart->get_cart() as $item) {
+		if ($item['product_id'] == $default_product_id) {
+			return;
+		}
+	}
+
+	WC()->cart->add_to_cart($default_product_id, 1);
+});
+
+
+add_action('wp', function () {
+	if (is_admin() || wp_doing_ajax() || !function_exists('WC')) {
+		return;
+	}
+	
+	global $cartflow_default_product;
+	
+	// Shortcode hasn't run yet, so no product ID
+	if (empty($cartflow_default_product)) {
+		return;
+	}
+	
+	$default_product_id = absint($cartflow_default_product);
+	
+	// Validate product
+	if (!wc_get_product($default_product_id)) {
+		return;
+	}
+	
+	if (!WC()->cart->is_empty()) {
+		return;
+	}
+	
+	// Prevent duplicate add
+	foreach (WC()->cart->get_cart() as $item) {
+		if ($item['product_id'] == $default_product_id) {
+			return;
+		}
+	}
+	
+	WC()->cart->add_to_cart($default_product_id, 1);
+});
 add_filter('woocommerce_is_checkout', function ($is_checkout) {
 	return true;
 });
