@@ -410,7 +410,7 @@ add_shortcode('cartflow-custom', function ($atts) {
 <?php
 });
 
-add_action('wp', function () {
+add_action('template_redirect', function () {
 	if (is_admin() || wp_doing_ajax() || !function_exists('WC')) {
 		return;
 	}
