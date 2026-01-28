@@ -422,6 +422,30 @@ add_shortcode('cartflow-custom', function ($atts) {
 <?php
 });
 
+// Ensure session and cart exist early for all requests
+add_action('init', function() {
+	if (class_exists('WooCommerce')) {
+		// Initialize session
+		if (is_null(WC()->session)) {
+			WC()->session = new WC_Session_Handler();
+			WC()->session->init();
+		}
+		
+		// Initialize cart
+		if (is_null(WC()->cart)) {
+			WC()->cart = new WC_Cart();
+		}
+	}
+}, 1);
+
+// Ensure cart persists during REST API and AJAX calls (for Ecom Drive)
+add_action('woocommerce_init', function() {
+	if (!WC()->cart->is_empty()) {
+		WC()->session->set('cart', WC()->cart->get_cart_for_session());
+	}
+});
+
+
 add_filter('woocommerce_is_checkout', function ($is_checkout) {
 	return true;
 });
