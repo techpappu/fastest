@@ -370,17 +370,6 @@ add_shortcode('cartflow-custom', function ($atts) {
 
 	if (!$default_id || empty($product_ids)) return '';
 
-	// Initialize WC session properly
-	if (is_null(WC()->session)) {
-		WC()->session = new WC_Session_Handler();
-		WC()->session->init();
-	}
-
-	// Initialize cart if needed
-	if (is_null(WC()->cart)) {
-		WC()->cart = new WC_Cart();
-	}
-
 	// Add default product to cart if empty
 	if (WC()->cart->is_empty()) {
 		WC()->cart->add_to_cart($default_id, 1);
@@ -420,29 +409,6 @@ add_shortcode('cartflow-custom', function ($atts) {
 		</div>
 	</div>
 <?php
-});
-
-// Ensure session and cart exist early for all requests
-add_action('init', function() {
-	if (class_exists('WooCommerce')) {
-		// Initialize session
-		if (is_null(WC()->session)) {
-			WC()->session = new WC_Session_Handler();
-			WC()->session->init();
-		}
-		
-		// Initialize cart
-		if (is_null(WC()->cart)) {
-			WC()->cart = new WC_Cart();
-		}
-	}
-}, 1);
-
-// Ensure cart persists during REST API and AJAX calls (for Ecom Drive)
-add_action('woocommerce_init', function() {
-	if (!WC()->cart->is_empty()) {
-		WC()->session->set('cart', WC()->cart->get_cart_for_session());
-	}
 });
 
 
