@@ -370,6 +370,18 @@ add_shortcode('cartflow-custom', function ($atts) {
 
 	if (!$default_id || empty($product_ids)) return '';
 
+	// Initialize WC session properly
+	if (is_null(WC()->session)) {
+		WC()->session = new WC_Session_Handler();
+		WC()->session->init();
+	}
+
+	// Initialize cart if needed
+	if (is_null(WC()->cart)) {
+		WC()->cart = new WC_Cart();
+	}
+
+	// Add default product to cart if empty
 	if (WC()->cart->is_empty()) {
 		WC()->cart->add_to_cart($default_id, 1);
 	}
