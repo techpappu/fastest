@@ -411,37 +411,6 @@ add_shortcode('cartflow-custom', function ($atts) {
 });
 
 add_action('wp', function () {
-
-	if (is_admin() || wp_doing_ajax() || !function_exists('WC')) {
-		return;
-	}
-
-	if (!is_front_page()) { // or your funnel page ID
-		return;
-	}
-
-	$default_product_id = 13;
-
-	// Validate product
-	if (!wc_get_product($default_product_id)) {
-		return;
-	}
-	if (!WC()->cart->is_empty()) {
-		return;
-	}
-
-	// Prevent duplicate add
-	foreach (WC()->cart->get_cart() as $item) {
-		if ($item['product_id'] == $default_product_id) {
-			return;
-		}
-	}
-
-	WC()->cart->add_to_cart($default_product_id, 1);
-});
-
-
-add_action('wp', function () {
 	if (is_admin() || wp_doing_ajax() || !function_exists('WC')) {
 		return;
 	}
