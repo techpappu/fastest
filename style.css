@@ -1225,7 +1225,8 @@ h3#ship-to-different-address {
 
 	.woocommerce-billing-fields h3,
 	#order_review_heading {
-		font-size: 20px;
+		font-size: 18px;
+		margin-bottom: 10px;
 	}
 
 	#place_order {
@@ -1251,13 +1252,12 @@ h3#ship-to-different-address {
 	justify-content: space-between;
 	padding: 12px;
 	border: 1px solid #ddd;
-	margin-bottom: 10px;
 	cursor: pointer;
 	border-radius: 6px;
 }
 
 .checkout-product-selector label img {
-	border-radius: 10px;
+	border-radius: 5px;
 	height: 100px;
 	width: 100px;
 }
@@ -1305,7 +1305,7 @@ div#order_review {
 table.shop_table.woocommerce-checkout-review-order-table {
 	order: 2;
 	border-top: 3px solid #dcd9d9;
-	margin-top: 5px;
+	margin-top: 15px;
 }
 
 * {
@@ -1721,26 +1721,26 @@ footer {
 
 .checkout-product-selector {
 	display: flex;
-	gap: 15px;
+	flex-direction: column;
+	gap: 10px;
 	/* margin-bottom: 40px; */
-	padding: 20px;
+	padding: 10px;
 	background: #f9f9f9;
-	border-radius: 12px;
+	border-radius: 10px 10px 0px 0px;
 	overflow-x: auto;
+	border-bottom: 3px solid #e5e5e5;
+	margin-bottom: 5px;
 }
 
 .checkout-product-selector label {
 	position: relative;
 	display: flex;
 	align-items: center;
-	gap: 15px;
 	background: #fff;
 	border: 2px solid #e0e0e0;
-	border-radius: 12px;
-	padding: 15px;
+	padding: 5px;
 	cursor: pointer;
 	transition: all 0.3s ease;
-	min-width: 320px;
 	flex-shrink: 0;
 }
 
@@ -1751,8 +1751,8 @@ footer {
 }
 
 .checkout-product-selector input[type="radio"] {
-	width: 20px;
-	height: 20px;
+	width: 12px;
+	height: 12px;
 	cursor: pointer;
 	accent-color: #D4AF37;
 	flex-shrink: 0;
@@ -1766,7 +1766,7 @@ footer {
 
 .checkout-product-selector label>span {
 	flex: 1;
-	font-size: 15px;
+	font-size: 11px;
 	font-weight: 500;
 	color: #333;
 	line-height: 1.4;
@@ -1796,9 +1796,8 @@ footer {
 }
 
 .checkout-product-selector label>div {
-	width: 80px;
-	height: 80px;
-	border-radius: 8px;
+	width: 50px;
+	height: 50px;
 	overflow: hidden;
 	border: 1px solid #f0f0f0;
 	flex-shrink: 0;
@@ -1843,21 +1842,14 @@ footer {
 }
 
 @media (max-width: 768px) {
-	.checkout-product-selector {
-		flex-direction: column;
-		padding: 15px;
-	}
-
-	.checkout-product-selector label {
+	
+}
+.checkout-product-selector label {
 		min-width: auto;
 		width: 100%;
+		max-width: 350px;
+		margin: auto;
 	}
-
-	.checkout-product-selector label>div {
-		width: 70px;
-		height: 70px;
-	}
-}
 
 .woocommerce-checkout {
 	background: #fff;

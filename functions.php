@@ -450,3 +450,37 @@ add_action('wp', function () {
 add_filter('woocommerce_is_checkout', function ($is_checkout) {
 	return true;
 });
+
+
+function thankyou_video_with_sound_button( $order_id ) {
+    ?>
+    <div style="max-width:400px;margin:20px auto 40px;text-align:center;">
+        <h3>🎬 Watch this important video</h3>
+
+        <iframe
+            id="thankyouVideo"
+            width="100%"
+            height="700"
+            src="https://www.youtube.com/embed/5fHzViaZ64A?autoplay=1&mute=1&playsinline=1&rel=0"
+            frameborder="0"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+
+        <button id="unmuteBtn"
+            style="margin-top:15px;padding:10px 18px;font-size:16px;
+                   background:#ff0000;color:#fff;border:none;
+                   border-radius:6px;cursor:pointer;">
+            🔊 Tap for sound
+        </button>
+    </div>
+
+    <script>
+        document.getElementById('unmuteBtn').addEventListener('click', function () {
+            const iframe = document.getElementById('thankyouVideo');
+            iframe.src = iframe.src.replace('mute=1', 'mute=0');
+            this.style.display = 'none';
+        });
+    </script>
+    <?php
+}

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template name: Funnel Main
+ * Template name: Funnel Adult
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -100,7 +100,7 @@ get_header('custom');
 
                 <div class="product-image" style="background: #D4AF37; padding: 20px; border-radius: 10px;">
 
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/10_pcs.webp" width="100%" height="auto" alt="">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/iamge_3.webp" width="100%" height="auto" alt="">
 
                 </div>
 
@@ -123,35 +123,19 @@ get_header('custom');
 <!-- Gallery Section -->
 
 <section class="gallery">
-
     <div class="container" style="width:100%">
-
         <div class="gallery-grid">
-
             <div class="gallery-item">
-
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/imgi_2_poster-11-y.webp" alt="">
-
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/imgi_5_4.webp" alt="">
             </div>
-
             <div class="gallery-item">
-
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/imgi_3_poster-9b-s.webp" alt="">
-
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/imgi_6_3.webp" alt="">
             </div>
-
             <div class="gallery-item">
-
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/imgi_4_poster-8-s.webp" alt="">
-
-
-
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/imgi_19_1.webp" alt="">
             </div>
-
         </div>
-
     </div>
-
 </section>
 
 
@@ -159,15 +143,11 @@ get_header('custom');
 <!-- Benefits Banner -->
 
 <section class="benefits-section">
-
     <div class="container">
-
         <h2 class="benefits-title">একটানা 40+ মিনিট খেলুন</h2>
-
         <p class="benefits-subtitle">প্রতিটা রাত মধুময় করে তুলুন</p>
         <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
     </div>
-
 </section>
 
 
@@ -202,7 +182,7 @@ get_header('custom');
 
             <div class="info-card" style="background: linear-gradient(135deg, #2d5016 0%, #5a8f3a 100%); color: white;">
 
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/imgi_3_poster-9b-s.webp" alt="">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/h3bwvdut-o-1.webp" alt="">
 
             </div>
 
