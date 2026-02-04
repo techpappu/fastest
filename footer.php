@@ -61,7 +61,7 @@
 	var modal = document.getElementById("video-modal");
 
 	// Get the thumbnail image and iframe
-	var thumbnail = document.getElementById("youtube-thumbnail");
+	var thumbnail = document.getElementById("youtube-thumbnail-container");
 	var youtubeVideo = document.getElementById("youtube-video");
 
 	// Get the close button inside the modal

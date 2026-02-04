@@ -455,7 +455,7 @@ add_action( 'woocommerce_before_thankyou', 'thankyou_video_with_sound_button',5 
 function thankyou_video_with_sound_button($order_id) {
     ?>
      <!-- Video Thumbnail (Image) Section -->
-        <div class="youtube-thumbnail-container">
+        <div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
             <img id="youtube-thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/thankyou.webp" alt="YouTube Video Thumbnail" />
             <!-- <div class="play-button">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/play-button.webp" alt="Play YouTube Video">

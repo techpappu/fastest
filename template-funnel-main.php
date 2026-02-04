@@ -165,7 +165,7 @@ get_header('custom');
         <h2 class="benefits-title">একটানা 40+ মিনিট খেলুন</h2>
         <p class="benefits-subtitle">প্রতিটা রাত মধুময় করে তুলুন</p>
         <!-- Video Thumbnail (Image) Section -->
-        <div class="youtube-thumbnail-container">
+        <div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
             <img id="youtube-thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/landing.webp" alt="YouTube Video Thumbnail" />
             <div class="play-button">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/play-button.webp" alt="Play YouTube Video">
