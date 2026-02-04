@@ -978,7 +978,7 @@ textarea {
 
 /* this checkout css */
 h3#ship-to-different-address {
-    display: none;
+	display: none;
 }
 
 
@@ -1841,15 +1841,14 @@ footer {
 	transform: scale(1);
 }
 
-@media (max-width: 768px) {
-	
-}
+@media (max-width: 768px) {}
+
 .checkout-product-selector label {
-		min-width: auto;
-		width: 100%;
-		max-width: 350px;
-		margin: auto;
-	}
+	min-width: auto;
+	width: 100%;
+	max-width: 350px;
+	margin: auto;
+}
 
 .woocommerce-checkout {
 	background: #fff;
@@ -1980,141 +1979,193 @@ footer {
 
 /* ===== THANK YOU PAGE WRAPPER ===== */
 .woocommerce-order {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	max-width: 900px;
+	margin: 40px auto;
+	padding: 30px;
+	background: #ffffff;
+	border-radius: 14px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 /* ===== SUCCESS MESSAGE ===== */
 .woocommerce-thankyou-order-received {
-    text-align: center;
-    font-size: 22px;
-    font-weight: 600;
-    color: #16a34a;
-    margin-bottom: 25px;
+	text-align: center;
+	font-size: 22px;
+	font-weight: 600;
+	color: #16a34a;
+	margin-bottom: 25px;
 }
 
 /* ===== ORDER OVERVIEW BOX ===== */
 .woocommerce-order-overview {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 15px;
-    background: #f9fafb;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    margin-left: 0px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 15px;
+	background: #f9fafb;
+	padding: 20px;
+	border-radius: 12px;
+	margin-bottom: 30px;
+	margin-left: 0px;
 }
 
 .woocommerce-order-overview li {
-    list-style: none;
-    font-size: 14px;
-    color: #6b7280;
+	list-style: none;
+	font-size: 14px;
+	color: #6b7280;
 }
 
 .woocommerce-order-overview li strong {
-    display: block;
-    font-size: 16px;
-    color: #111827;
-    margin-top: 4px;
+	display: block;
+	font-size: 16px;
+	color: #111827;
+	margin-top: 4px;
 }
 
 /* ===== SECTION HEADINGS ===== */
 .woocommerce-order-details h2,
 .woocommerce-customer-details h2 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #e5e7eb;
-    color: #111827;
+	font-size: 18px;
+	margin-bottom: 15px;
+	padding-bottom: 8px;
+	border-bottom: 2px solid #e5e7eb;
+	color: #111827;
 }
 
 /* ===== ORDER DETAILS TABLE ===== */
 .woocommerce-order-details table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #ffffff;
-    border-radius: 10px;
-    overflow: hidden;
+	width: 100%;
+	border-collapse: collapse;
+	background: #ffffff;
+	border-radius: 10px;
+	overflow: hidden;
 }
 
 .woocommerce-order-details th,
 .woocommerce-order-details td {
-    padding: 14px 16px;
-    font-size: 14px;
-    border-bottom: 1px solid #e5e7eb;
+	padding: 14px 16px;
+	font-size: 14px;
+	border-bottom: 1px solid #e5e7eb;
 }
 
 .woocommerce-order-details th {
-    background: #f3f4f6;
-    text-align: left;
-    font-weight: 600;
-    color: #374151;
+	background: #f3f4f6;
+	text-align: left;
+	font-weight: 600;
+	color: #374151;
 }
 
 .woocommerce-order-details td {
-    color: #111827;
+	color: #111827;
 }
 
 /* ===== TOTAL ROW HIGHLIGHT ===== */
 .woocommerce-order-details tfoot tr:last-child th,
 .woocommerce-order-details tfoot tr:last-child td {
-    font-size: 16px;
-    font-weight: 700;
-    color: #16a34a;
+	font-size: 16px;
+	font-weight: 700;
+	color: #16a34a;
 }
 
 /* ===== CUSTOMER DETAILS ===== */
 .woocommerce-customer-details {
-    margin-top: 30px;
+	margin-top: 30px;
 }
 
 .woocommerce-columns--addresses {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 20px;
 }
 
 .woocommerce-column__title {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #111827;
+	font-size: 16px;
+	margin-bottom: 10px;
+	color: #111827;
 }
 
 .woocommerce-customer-details address {
-    background: #f9fafb;
-    padding: 16px;
-    border-radius: 10px;
-    font-style: normal;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #374151;
+	background: #f9fafb;
+	padding: 16px;
+	border-radius: 10px;
+	font-style: normal;
+	font-size: 14px;
+	line-height: 1.7;
+	color: #374151;
 }
 
 /* ===== PAYMENT METHOD BADGE ===== */
 .woocommerce-order-overview__payment-method strong {
-    display: inline-block;
-    background: #e0f2fe;
-    color: #0369a1;
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: 13px;
+	display: inline-block;
+	background: #e0f2fe;
+	color: #0369a1;
+	padding: 4px 10px;
+	border-radius: 999px;
+	font-size: 13px;
 }
 
 /* ===== MOBILE OPTIMIZATION ===== */
 @media (max-width: 600px) {
-    .woocommerce-order {
-        padding: 20px;
-        margin: 20px;
-    }
+	.woocommerce-order {
+		padding: 20px;
+		margin: 20px;
+	}
 
-    .woocommerce-thankyou-order-received {
-        font-size: 20px;
-    }
+	.woocommerce-thankyou-order-received {
+		font-size: 20px;
+	}
 }
+
+
+/* =====youtube video css ===== */
+.youtube-thumbnail-container {
+	position: relative;
+	width: 100%;
+	height: auto;
+	cursor: pointer;
+}
+
+#youtube-thumbnail {
+	width: 100%;
+	height: 100%;
+}
+
+.play-button {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+}
+
+.play-button img {
+	width: 100px;
+	height: 100px;
+}
+
+/* Modal Styles */
+.video-modal {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	/* Dark background */
+	justify-content: center;
+	align-items: center;
+}
+
+.close-modal {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	color: white;
+	font-size: 30px;
+	cursor: pointer;
+}
+
 /*--------------------------------------------------------------
 # End of file

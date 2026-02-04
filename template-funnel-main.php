@@ -179,93 +179,6 @@ get_header('custom');
             <iframe id="youtube-video" width="640" height="360" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
-        <!-- CSS Styles for Thumbnail, Modal and Play Button -->
-        <style>
-            .youtube-thumbnail-container {
-                position: relative;
-                width: 100%;
-                height: auto;
-                cursor: pointer;
-            }
-
-            #youtube-thumbnail {
-                width: 100%;
-                height: 100%;
-            }
-
-            .play-button {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                cursor: pointer;
-            }
-
-            .play-button img {
-                width: 100px;
-                height: 100px;
-            }
-
-            /* Modal Styles */
-            .video-modal {
-                display: none;
-                position: fixed;
-                z-index: 1000;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.8);
-                /* Dark background */
-                justify-content: center;
-                align-items: center;
-            }
-
-            .close-modal {
-                position: absolute;
-                top: 15px;
-                right: 15px;
-                color: white;
-                font-size: 30px;
-                cursor: pointer;
-            }
-        </style>
-        <!-- JavaScript for Modal Functionality -->
-        <script>
-            // Get the modal
-            var modal = document.getElementById("video-modal");
-
-            // Get the thumbnail image and iframe
-            var thumbnail = document.getElementById("youtube-thumbnail");
-            var youtubeVideo = document.getElementById("youtube-video");
-
-            // Get the close button inside the modal
-            var closeBtn = document.querySelector(".close-modal");
-
-            // The video ID from the YouTube link
-            var youtubeVideoID = "fvgLuO-pZoM"; // Replace with the actual video ID
-
-            // When the thumbnail is clicked, open the modal and play the video
-            thumbnail.onclick = function() {
-                modal.style.display = "flex";
-                youtubeVideo.src = "https://www.youtube.com/embed/" + youtubeVideoID + "?autoplay=1";
-            }
-
-            // When the close button is clicked, close the modal and stop the video
-            closeBtn.onclick = function() {
-                modal.style.display = "none";
-                youtubeVideo.src = ""; // Stop the video by clearing the iframe source
-            }
-
-            // Close the modal if the user clicks anywhere outside the video
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                    youtubeVideo.src = ""; // Stop the video by clearing the iframe source
-                }
-            }
-        </script>
-
         <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
     </div>
 
@@ -278,41 +191,24 @@ get_header('custom');
 <!-- Additional Info -->
 
 <section class="info-section">
-
     <div class="container">
-
         <div class="info-grid">
-
             <div class="info-card">
-
                 <h3>এই বিশেষ মধু ১০পিস হয়। ফুল কোর্স এটি।</h3>
-
                 <ul class="info-list">
-
                     <li>100% হারবাল উপাদানে তৈরি</li>
-
                     <li>ল্যাব টেস্ট পরীক্ষিত</li>
-
                     <li>কোন প্রকার সাইড এফেক্ট নাই</li>
-
                     <li>৩ দিন সে-ব-নে রেজাল্ট পাবেন</li>
                     <li>বিফলে মূল্য ফেরত</li>
-
                 </ul>
                 <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
-
             </div>
-
             <div class="info-card" style="background: linear-gradient(135deg, #2d5016 0%, #5a8f3a 100%); color: white;">
-
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/imgi_3_poster-9b-s.webp" alt="">
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
 
@@ -320,36 +216,23 @@ get_header('custom');
 <!-- FAQ Section -->
 
 <section class="info-section" style="background: #f9f9f9;">
-
     <div class="container">
-
         <h2 class="text-center mb-20" style="color: #C41E3A; font-size: clamp(20px, 4vw, 28px);">সাধারণ প্রশ্ন উত্তর</h2>
-
         <div class="info-card">
-
             <ul class="info-list">
-
                 <li>বিস্তারিত বলুন</li>
                 <p>Natural Mixed Honey হলো প্রাকৃতিক মধুর সাথে বাছাই করা ভেষজ ও পুষ্টিকর উপাদানের সমন্বয়ে তৈরি একটি বিশেষ ফর্মুলা। এটি শরীরের প্রাকৃতিক শক্তি, সহনশীলতা ও দৈনন্দিন এনার্জি সাপোর্ট করতে সাহায্য করে।</p>
-
                 <li>মিক্সড হানি কি?</li>
                 <p>এই মধু শরীরের ভেতর থেকে শক্তি জাগিয়ে তোলে, ক্লান্তি কমাতে সহায়তা করে এবং দৈনন্দিন জীবনে ফ্রেশ ও অ্যাকটিভ থাকতে সাহায্য করে।</p>
-
                 <li>অগ্রিম টাকা দিতে হবে</li>
                 <p>না, অগ্রিম কোন টাকা দিতে হবে না</p>
-
                 <li>কোন প্রকার সাইড এফেক্ট হবে</li>
                 <p>না, সম্পূর্ণ অরগানিক প্রডাক্ট, কোন প্রকার প্রব্লেম হবে না।</p>
-
                 <li>কত দিনের কোর্স</li>
                 <p>ফুল কোর্স ১০ পিসের - ১ মাস সেবন করলে স্থায়ী সমাধান।</p>
-
             </ul>
-
         </div>
-
     </div>
-
 </section>
 
 
@@ -357,36 +240,26 @@ get_header('custom');
 <!-- Stats Section -->
 
 <section class="stats-section">
-
     <div class="container">
-
         <section class="countdown">
             <div class="offer-badge">সীমিত সময়ের অফার</div>
-
             <div class="delivery-text">হোম ডেলিভারি - সারাদেশে</div>
-
             <div class="timer">
                 <div class="time-box">
                     <div class="number">7</div>
                     <div class="label">hours</div>
                 </div>
-
                 <div class="time-box">
                     <div class="number">23</div>
                     <div class="label">minutes</div>
                 </div>
-
                 <div class="time-box">
                     <div class="number">8</div>
                     <div class="label">seconds</div>
                 </div>
             </div>
-
-
         </section>
-
     </div>
-
 </section>
 
 
