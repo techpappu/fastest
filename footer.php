@@ -68,7 +68,12 @@
 	var closeBtn = document.querySelector(".close-modal");
 
 	// The video ID from the YouTube link
-	var youtubeVideoID = "fvgLuO-pZoM"; // Replace with the actual video ID
+	if(document.body.classList.contains("woocommerce-order-received")) {
+		var youtubeVideoID = "5fHzViaZ64A";
+	}else{
+		var youtubeVideoID = "fvgLuO-pZoM"; 
+	}
+	 // Replace with the actual video ID
 
 	// When the thumbnail is clicked, open the modal and play the video
 	thumbnail.onclick = function() {
