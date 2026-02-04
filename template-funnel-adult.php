@@ -146,6 +146,108 @@ get_header('custom');
     <div class="container">
         <h2 class="benefits-title">একটানা 40+ মিনিট খেলুন</h2>
         <p class="benefits-subtitle">প্রতিটা রাত মধুময় করে তুলুন</p>
+        <!-- Video Thumbnail (Image) Section -->
+        <div class="youtube-thumbnail-container">
+            <img id="youtube-thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/thankyou.webp" alt="YouTube Video Thumbnail" />
+            <div class="play-button">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/play-button.webp" alt="Play YouTube Video">
+            </div>
+        </div>
+
+        <!-- Modal (Lightbox) Section with YouTube Video Embed -->
+        <div id="video-modal" class="video-modal">
+            <span class="close-modal">&times;</span>
+            <!-- YouTube Embed Video -->
+            <iframe id="youtube-video" width="640" height="360" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <!-- CSS Styles for Thumbnail, Modal and Play Button -->
+        <style>
+            .youtube-thumbnail-container {
+                position: relative;
+                width: 100%;
+                height: auto;
+                cursor: pointer;
+            }
+
+            #youtube-thumbnail {
+                width: 100%;
+                height: 100%;
+            }
+
+            .play-button {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+            }
+
+            .play-button img {
+                width: 100px;
+                height: 100px;
+            }
+
+            /* Modal Styles */
+            .video-modal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+                /* Dark background */
+                justify-content: center;
+                align-items: center;
+            }
+
+            .close-modal {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                color: white;
+                font-size: 30px;
+                cursor: pointer;
+            }
+        </style>
+        <!-- JavaScript for Modal Functionality -->
+        <script>
+            // Get the modal
+            var modal = document.getElementById("video-modal");
+
+            // Get the thumbnail image and iframe
+            var thumbnail = document.getElementById("youtube-thumbnail");
+            var youtubeVideo = document.getElementById("youtube-video");
+
+            // Get the close button inside the modal
+            var closeBtn = document.querySelector(".close-modal");
+
+            // The video ID from the YouTube link
+            var youtubeVideoID = "fvgLuO-pZoM"; // Replace with the actual video ID
+
+            // When the thumbnail is clicked, open the modal and play the video
+            thumbnail.onclick = function() {
+                modal.style.display = "flex";
+                youtubeVideo.src = "https://www.youtube.com/embed/" + youtubeVideoID + "?autoplay=1";
+            }
+
+            // When the close button is clicked, close the modal and stop the video
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+                youtubeVideo.src = ""; // Stop the video by clearing the iframe source
+            }
+
+            // Close the modal if the user clicks anywhere outside the video
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    youtubeVideo.src = ""; // Stop the video by clearing the iframe source
+                }
+            }
+        </script>
+
         <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
     </div>
 </section>
