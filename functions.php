@@ -470,3 +470,5 @@ function thankyou_video_with_sound_button($order_id) {
         </div>
     <?php
 }
+
+add_filter( 'woocommerce_order_number', '__return_empty_string' );

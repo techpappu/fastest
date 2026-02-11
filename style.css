@@ -2014,7 +2014,10 @@ footer {
 	font-size: 14px;
 	color: #6b7280;
 }
-
+/* hide order id */
+li.woocommerce-order-overview__order.order {
+    display: none;
+}
 .woocommerce-order-overview li strong {
 	display: block;
 	font-size: 16px;
