@@ -2172,3 +2172,16 @@ li.woocommerce-order-overview__order.order {
 
 /*--------------------------------------------------------------
 # End of file
+
+/*--------------------------------------------------------------
+# temporay css */
+
+.checkout-product-selector label:first-child span :after {
+    content:'ডেলিভারি চার্জ ফ্রি';
+    position:absolute;
+    background:green;
+    font-size:8px;
+    padding:3px;
+    color:white;
+    border-radius:3px;
+}
