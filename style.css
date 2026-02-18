@@ -2185,3 +2185,28 @@ li.woocommerce-order-overview__order.order {
     color:white;
     border-radius:3px;
 }
+/*--------------------------------------------------------------
+# sticky header css notics board*/
+
+/*--------------------------------------------------------------
+# temporay css */
+section.sticky-header {
+    position: fixed;
+    top: 0px;
+    z-index: 99;
+    width: 100%;
+    background: #C41E3A;
+    color: white;
+}
+.sticky-content .heading{
+    text-align:center;
+}
+.sticky-content marquee{
+    background:#7f0e21;
+    margin:0px 5px;
+    border:solid 1px #b64f60;
+    border-radius:5px;
+}
+.sticky-content marquee p{
+    display:inline
+}
