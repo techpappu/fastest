@@ -451,24 +451,37 @@ add_filter('woocommerce_is_checkout', function ($is_checkout) {
 	return true;
 });
 
-add_action( 'woocommerce_before_thankyou', 'thankyou_video_with_sound_button',5 );
-function thankyou_video_with_sound_button($order_id) {
-    ?>
-     <!-- Video Thumbnail (Image) Section -->
-        <div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
-            <img id="youtube-thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/thankyou.webp" alt="YouTube Video Thumbnail" />
-            <!-- <div class="play-button">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/play-button.webp" alt="Play YouTube Video">
-            </div> -->
-        </div>
+add_action('woocommerce_before_thankyou', 'thankyou_video_with_sound_button', 5);
+function thankyou_video_with_sound_button($order_id)
+{
+?>
 
-        <!-- Modal (Lightbox) Section with YouTube Video Embed -->
-        <div id="video-modal" class="video-modal">
-            <span class="close-modal">&times;</span>
-            <!-- YouTube Embed Video -->
-            <iframe id="youtube-video" width="640" height="360" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    <?php
+	<div class="new-content">
+		<div class="new-heading" style="font-weight: 600;color:brown">🌙 রমজান ও রোজায় ব্যবহার নির্দেশনা</div>
+		<div>
+			<ul>
+				<li>রমজান ও রোজার সময় স্বাভাবিকভাবেই গ্রহণযোগ্য।</li>
+				<li>ইফতারের পর বা সেহরির আগে নিয়ম অনুযায়ী গ্রহণ করা যায়।</li>
+				<li>রমজান ও রোজার সময় স্বাভাবিকভাবেই গ্রহণযোগ্য।</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- Video Thumbnail (Image) Section -->
+	<div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
+		<img id="youtube-thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/imgi_2_poster-11-y.webp" alt="YouTube Video Thumbnail" />
+		<div class="play-button">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/play-button.webp" alt="Play YouTube Video">
+		</div>
+	</div>
+
+	<!-- Modal (Lightbox) Section with YouTube Video Embed -->
+	<div id="video-modal" class="video-modal">
+		<span class="close-modal">&times;</span>
+		<!-- YouTube Embed Video -->
+		<iframe id="youtube-video" width="640" height="360" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
+<?php
 }
 
 //add_filter( 'woocommerce_order_number', '__return_empty_string' );
