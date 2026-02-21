@@ -32,3 +32,30 @@
          </marquee>
       </div>
    </section>
+   <div>
+      <a href="tel:+8809613826917" class="sticky-call">
+         📞 ফোন করুন
+      </a>
+   </div>
+   <style>
+      .sticky-call {
+         position: fixed;
+         bottom: 20px;
+         right: 20px;
+         background-color: #28a745;
+         color: #fff;
+         padding: 10px;
+         border-radius: 20px;
+         text-decoration: none;
+         font-size: 12px;
+         font-weight: bold;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+         z-index: 9999;
+         transition: 0.3s ease;
+      }
+
+      .sticky-call:hover {
+         background-color: #218838;
+         transform: scale(1.05);
+      }
+   </style>
