@@ -17,21 +17,16 @@ get_header('custom');
 
 
 <section class="hero">
-
     <div class="hero-content">
-
         <div class="logo">ROYAL Wellness</div>
-
         <div class="product-badge">NATURAL MIXED HONEY</div>
-
         <h1 class="hero-title">ন্যাচারাল মিক্সড মধু</h1>
-
         <p class="hero-subtitle">সেরা মধুগুলোর সবচেয়ে শক্তিশালী কম্বিনেশন</p>
-
+        <div class="product-image" style="background: #e44708; padding: 5px; border-radius: 10px;">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/imgi_3_poster-9b-s.webp" style="width:100%; height:auto;border-radius:5px;" alt="Royal Honey">
+        </div>
         <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
-
     </div>
-
 </section>
 
 
@@ -39,14 +34,10 @@ get_header('custom');
 <!-- Trust Section -->
 
 <section class="trust-section">
-
     <h2 class="trust-title">সম্পূর্ণ ক্যাশ অন ডেলিভারি</h2>
-
     <p class="trust-text">
         বিশেষ সময়ের জন্য কি খুঁজছেন একটু বাড়তি শক্তি? তাহলে শুনে নিন এক মিনিটে natural Mixd honey এর রাজকীয় কথা!" natural Mixd honey শুধু রাজাদের জন্য না বরং আপনার ভেতরের রাজাকে জাগিয়ে তোলার জন্য!
     </p>
-    
-
 </section>
 
 
@@ -54,68 +45,38 @@ get_header('custom');
 <!-- Features Section -->
 
 <section class="features-section">
-
     <div class="container">
-
         <h2 class="features-title">এটা কোনো সাধারণ হানি না</h2>
-
         <div class="features-grid">
-
             <div>
-
                 <div class="feature-item">
-
                     <span>Natural Mixd Honey – থাইল্যান্ডের এর proven formulay তৈরী একটা শক্তির বোমা।</span>
-
                 </div>
-
                 <div class="feature-item">
-
                     <span>পারফর্মেন্স বেজড, কোনো সাইড এফেক্ট ছাড়াই</span>
-
                 </div>
-
                 <div class="feature-item">
-
                     <span>রাতে ঘুমানোর অথবা কাজের যাওয়ার ১ ঘন্টা আগে - গরম দুধ অথবা গরম পানি দিয়ে সে-ব-ন করুন।</span>
-
                 </div>
-
                 <div class="feature-item">
-
                     <span>যেটা একবার খেলে এর এনার্জি থাকে আপনার শরীরে মিনিমাম ৩ দিন!</span>
-
                 </div>
-
                 <div class="feature-item">
-
                     <span>সম্পূর্ণ অরগানিক প্রোডাক্ট</span>
-
                 </div>
                 <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
-
             </div>
 
             <div class="product-image-container">
-
                 <div class="product-image" style="background: #D4AF37; padding: 20px; border-radius: 10px;">
-
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/iamge_3.webp" width="100%" height="auto" alt="">
-
                 </div>
-
             </div>
-
         </div>
-
         <div class="text-center">
-
             <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
-
         </div>
-
     </div>
-
 </section>
 
 
