@@ -22,8 +22,8 @@ get_header('custom');
         <div class="product-badge">NATURAL MIXED HONEY</div>
         <h1 class="hero-title">ন্যাচারাল মিক্সড মধু</h1>
         <p class="hero-subtitle">সেরা মধুগুলোর সবচেয়ে শক্তিশালী কম্বিনেশন</p>
-        <div class="product-image" style="background: #e44708; padding: 5px; border-radius: 10px;">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/imgi_3_poster-9b-s.webp" style="width:100%; height:auto;border-radius:5px;" alt="Royal Honey">
+        <div class="product-image" style="background: #e44708; padding: 5px; border-radius: 10px;max-width:350px;">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/20953711a.gif" style="width:100%; height:auto;border-radius:5px;" alt="Royal Honey">
         </div>
         <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
     </div>
