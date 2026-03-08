@@ -41,7 +41,7 @@ get_header('custom');
 
 <section class="hero">
     <div class="hero-content">
-        <div class="logo">ROYAL Wellness</div>
+        <div class="logo">যে কোনো প্রয়োজনে কল করুন <br> <a href="tel:01811546874">01811546874</a></div>
         <div class="product-badge">Royal Honey</div>
         <h1 class="hero-title">রয়াল মধু</h1>
         <p class="hero-subtitle">সেরা মধুগুলোর সবচেয়ে শক্তিশালী কম্বিনেশন</p>

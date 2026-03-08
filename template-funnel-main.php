@@ -20,7 +20,7 @@ get_header('custom');
 
     <div class="hero-content">
 
-        <div class="logo">ROYAL Wellness</div>
+        <div class="logo">যে কোনো প্রয়োজনে কল করুন <br> <a href="tel:01811546874">01811546874</a></div>
 
         <div class="product-badge">NATURAL MIXED HONEY</div>
 
