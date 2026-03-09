@@ -45,7 +45,7 @@ get_header('custom');
 
 <section class="hero">
     <div class="hero-content">
-        <div class="logo">যে কোনো প্রয়োজনে কল করুন <br> <a href="tel:01811546874">01811546874</a></div>
+        <div class="logo">অর্ডার করতে সরাসরি কল করুন <br> <a href="tel:01811546874">01811546874</a></div>
         <div class="product-badge">Royal Crown Roots</div>
         <h1 class="hero-title">রয়েল ক্রাউন রুটস মধু</h1>
         <p class="hero-subtitle">সেরা মধুগুলোর সবচেয়ে শক্তিশালী কম্বিনেশন</p>
@@ -238,7 +238,7 @@ get_header('custom');
     <div class="container">
 
         <?php the_content(); ?>
-
+        <div class="logo" style="text-align:center;">অর্ডার করতে সরাসরি কল করুন <br> <a href="tel:01811546874">01811546874</a></div>
     </div>
 
 </section>

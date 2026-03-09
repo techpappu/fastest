@@ -41,6 +41,7 @@ get_header('custom');
 <section class="order-section" id="order">
     <div class="container">
         <?php the_content(); ?>
+        <div class="logo" style="text-align:center;">অর্ডার করতে সরাসরি কল করুন <br> <a href="tel:01811546874">01811546874</a></div>
     </div>
 </section>
 <!-- Footer -->
