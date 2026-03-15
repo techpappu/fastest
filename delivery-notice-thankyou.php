@@ -43,15 +43,22 @@
         border-radius: 6px;
         padding: 7px 10px;
         line-height: 1.6;
-        text-align: center;
+        margin-bottom: 6px
+    }
+
+    .tip:last-child {
+        margin-bottom: 0
     }
 </style>
 
 <div class="notice">
-    <div class="notice-title">🚚 সম্ভাব্য ডেলিভারি সময়</div>
+    <div class="notice-title">🇹🇭 এটি থাইল্যান্ডের একটি কার্যকর প্রোডাক্ট</div>
     <div class="dates">
         <div class="date-box"><span>🏙 ঢাকার ভিতরে: ২৬ – ২৮ মার্চ</span></div>
         <div class="date-box"><span>📦 ঢাকার বাইরে: ২৭ – ৩০ মার্চ</span></div>
+        <div class="date-box" style="background: #855000;"><span>⏳ ভালো মানের পণ্য</span></div>
+        <div class="date-box" style="background: #855000;"><span>✈️ থাইল্যান্ড থেকে আমদানি</span></div>
     </div>
-    <div class="tip">✔️ অনুগ্রহ করে এই সময়ের মধ্যে <span style="color: #cc5500;font-weight: 700;">আপনি যেখানে থাকবেন</span>, সেই ঠিকানা দিয়ে অর্ডারটি প্লেস করুন, যাতে ডেলিভারি সহজে সম্পন্ন করা যায়।</div>
+    <div class="tip">⏳ ভালো মানের পণ্য পৌঁছে দিতে কিছুটা সময় লাগতে পারে, তাই অনুগ্রহ করে নির্ধারিত সময় পর্যন্ত অপেক্ষা করুন।</div>
+    <div class="tip">✔️ ভালো জিনিসের জন্য একটু অপেক্ষা করতেই হয়।</div>
 </div>

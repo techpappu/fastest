@@ -467,7 +467,7 @@ function thankyou_video_with_sound_button($order_id)
 			</ul>
 		</div>
 	</div>
-	<?php include get_template_directory() . '/delivery-notice.php'; ?>
+	<?php include get_template_directory() . '/delivery-notice-thankyou.php'; ?>
 	<br>
 	<!-- Video Thumbnail (Image) Section -->
 	<div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
