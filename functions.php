@@ -401,6 +401,7 @@ add_shortcode('cartflow-custom', function ($atts) {
 				<?php endforeach; ?>
 
 			</div>
+			<?php include get_template_directory() . '/delivery-notice.php'; ?>
 			<?php echo do_shortcode('[woocommerce_checkout]'); ?>
 		</div>
 	</div>
@@ -466,7 +467,8 @@ function thankyou_video_with_sound_button($order_id)
 			</ul>
 		</div>
 	</div>
-
+	<?php include get_template_directory() . '/delivery-notice.php'; ?>
+	<br>
 	<!-- Video Thumbnail (Image) Section -->
 	<div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
 		<img id="youtube-thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/imgi_2_poster-11-y.webp" alt="YouTube Video Thumbnail" />
