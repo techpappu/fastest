@@ -1262,10 +1262,6 @@ h3#ship-to-different-address {
 	width: 100px;
 }
 
-.checkout-product-selector input {
-	margin-right: 8px;
-}
-
 .checkout-product-selector input:checked+span {
 	font-weight: 600;
 	color: #000;
@@ -1744,6 +1740,7 @@ footer {
 .checkout-product-selector label {
 	position: relative;
 	display: flex;
+	gap: 10px;
 	align-items: center;
 	background: #fff;
 	border: 2px solid #e0e0e0;
@@ -1752,7 +1749,13 @@ footer {
 	transition: all 0.3s ease;
 	flex-shrink: 0;
 }
-
+.checkout-product-selector p{
+	margin: 0px;
+}
+.checkout-product-selector .product-slogan {
+    font-weight: bold;
+    color: #cc5500;
+}
 .checkout-product-selector label:hover {
 	transform: translateY(-3px);
 	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -1781,7 +1784,7 @@ footer {
 	line-height: 1.4;
 }
 
-.checkout-product-selector input[type="radio"]:checked+span {
+.checkout-product-selector input[type="radio"]:checked ~ span {
 	color: #D4AF37;
 	font-weight: 600;
 }

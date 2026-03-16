@@ -229,7 +229,8 @@ add_filter('woocommerce_checkout_fields', function ($fields) {
 
 	/* Address field */
 	$fields['billing']['billing_address_1']['label']       = 'ঠিকানা';
-	$fields['billing']['billing_address_1']['placeholder'] = 'থানা: রামপুর, জেলা: ঢাকা';
+	//$fields['billing']['billing_address_1']['placeholder'] = 'থানা: রামপুর, জেলা: ঢাকা';
+	$fields['billing']['billing_address_1']['placeholder'] = 'ঈদের ৬–৭ দিনের পর ডেলিভারি করা হবে। সঠিক ঠিকানা লিখুন।';
 	$fields['billing']['billing_address_1']['priority']    = 30;
 
 	return $fields;
@@ -381,22 +382,24 @@ add_shortcode('cartflow-custom', function ($atts) {
 
 				<?php foreach ($product_ids as $pid):
 					$product = wc_get_product($pid);
+					$slogan = $product->get_meta('_product_slogan');
 					if (!$product) continue;
 				?>
 					<label>
-						<input type="radio"
-							name="checkout_product"
-							value="<?php echo esc_attr($pid); ?>"
-							<?php checked($pid, $default_id); ?>>
-
-						<span>
-							<?php echo esc_html($product->get_name()); ?><br>
-							<?php echo $product->get_price_html(); ?>
-						</span>
-
+						<input type="radio" name="checkout_product" value="<?php echo esc_attr($pid); ?>" <?php checked($pid, $default_id); ?>>
 						<div>
 							<?php echo $product->get_image('thumbnail'); ?>
 						</div>
+						<span>
+							<p><?php echo esc_html($product->get_name()); ?></p>
+							<p class="product-slogan"><?php echo esc_html($slogan); ?></p>
+						</span>
+						<span style="text-align:right;">
+							<?php 
+								$price = $product->get_sale_price() ? $product->get_sale_price() : $product->get_regular_price();
+								echo wc_price($price); 
+							?>
+						</span>
 					</label>
 				<?php endforeach; ?>
 
@@ -484,6 +487,31 @@ function thankyou_video_with_sound_button($order_id)
 		<iframe id="youtube-video" width="640" height="360" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
 <?php
+}
+
+add_action('woocommerce_product_options_general_product_data', 'add_product_slogan_field');
+
+function add_product_slogan_field() {
+
+    woocommerce_wp_text_input(
+        array(
+            'id' => '_product_slogan',
+            'label' => __('Product Slogan', 'woocommerce'),
+            'placeholder' => 'Short product slogan',
+            'desc_tip' => true,
+            'description' => __('Enter a short slogan for this product.', 'woocommerce')
+        )
+    );
+
+}
+add_action('woocommerce_process_product_meta', 'save_product_slogan_field');
+
+function save_product_slogan_field($post_id) {
+
+    $slogan = isset($_POST['_product_slogan']) ? sanitize_text_field($_POST['_product_slogan']) : '';
+
+    update_post_meta($post_id, '_product_slogan', $slogan);
+
 }
 
 //add_filter( 'woocommerce_order_number', '__return_empty_string' );
