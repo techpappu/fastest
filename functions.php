@@ -513,5 +513,14 @@ function save_product_slogan_field($post_id) {
     update_post_meta($post_id, '_product_slogan', $slogan);
 
 }
+//hide order number from thank you page but keep it in admin order list and email
+add_filter( 'woocommerce_order_number', function( $order_number, $order ) {
 
-//add_filter( 'woocommerce_order_number', '__return_empty_string' );
+    // Only affect Thank You (order received) page
+    if ( is_order_received_page() ) {
+        return '';
+    }
+
+    return $order_number;
+
+}, 10, 2 );
