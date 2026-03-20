@@ -404,7 +404,7 @@ add_shortcode('cartflow-custom', function ($atts) {
 				<?php endforeach; ?>
 
 			</div>
-			<?php include get_template_directory() . '/delivery-notice.php'; ?>
+			<?php //include get_template_directory() . '/delivery-notice.php'; ?>
 			<?php echo do_shortcode('[woocommerce_checkout]'); ?>
 		</div>
 	</div>
@@ -460,17 +460,8 @@ function thankyou_video_with_sound_button($order_id)
 {
 ?>
 
-	<div class="new-content">
-		<div class="new-heading" style="font-weight: 600;color:brown">🌙 রমজান ও রোজায় ব্যবহার নির্দেশনা</div>
-		<div>
-			<ul>
-				<li>রমজান ও রোজার সময় স্বাভাবিকভাবেই গ্রহণযোগ্য।</li>
-				<li>ইফতারের পর বা সেহরির আগে নিয়ম অনুযায়ী গ্রহণ করা যায়।</li>
-				<li>রমজান ও রোজার সময় স্বাভাবিকভাবেই গ্রহণযোগ্য।</li>
-			</ul>
-		</div>
-	</div>
-	<?php include get_template_directory() . '/delivery-notice-thankyou.php'; ?>
+	
+	<?php //include get_template_directory() . '/delivery-notice-thankyou.php'; ?>
 	<br>
 	<!-- Video Thumbnail (Image) Section -->
 	<div class="youtube-thumbnail-container" id="youtube-thumbnail-container">

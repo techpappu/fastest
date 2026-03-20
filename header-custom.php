@@ -21,7 +21,7 @@
 
 
 <body <?php body_class(); ?>>
-   <section style="margin-top: 50px;"></section>
+   <!-- <section style="margin-top: 50px;"></section>
    <section class="sticky-header">
       <div class="sticky-content">
          <div class="heading">🌙 রমজান ও রোজায় ব্যবহার নির্দেশনা</div>
@@ -31,7 +31,7 @@
             <p>রোজায় ব্যবহারে কোনো সমস্যা নেই এবং ধারাবাহিক ব্যবহারেই স্থির ফল অনুভব করা যায়।</p>
          </marquee>
       </div>
-   </section>
+   </section> -->
    <div>
       <a href="tel:01811546841" class="sticky-call">
          📞 ফোন করুন
