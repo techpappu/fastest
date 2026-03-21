@@ -50,7 +50,7 @@
         margin-bottom: 0
     }
 </style>
-<div class="new-content">
+<!-- <div class="new-content">
     <div class="new-heading" style="font-weight: 600;color:brown">🌙 রমজান ও রোজায় ব্যবহার নির্দেশনা</div>
     <div>
         <ul>
@@ -59,7 +59,7 @@
             <li>রমজান ও রোজার সময় স্বাভাবিকভাবেই গ্রহণযোগ্য।</li>
         </ul>
     </div>
-</div>
+</div> -->
 
 <div class="notice">
     <div class="notice-title">🇹🇭 এটি থাইল্যান্ডের একটি কার্যকর প্রোডাক্ট</div>
