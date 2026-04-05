@@ -515,3 +515,4 @@ add_filter( 'woocommerce_order_number', function( $order_number, $order ) {
     return $order_number;
 
 }, 10, 2 );
+include get_template_directory() . '/google-template-functions.php';	
