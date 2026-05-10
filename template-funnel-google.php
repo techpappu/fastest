@@ -18,7 +18,7 @@ get_header('custom');
 
 <section class="hero">
     <div class="hero-content">
-        <div class="logo">অর্ডার করতে সরাসরি কল করুন <br> <a href="tel:01811546874">01811546874</a></div>
+        <div class="logo">অর্ডার করতে সরাসরি কল করুন <br> <a href="tel:01811546841">01811546841</a></div>
         <div class="product-badge">NATURAL MIXED HONEY</div>
         <h1 class="hero-title">ন্যাচারাল মিক্সড মধু</h1>
         <div class="product-image" style="background: #e44708; padding: 5px; border-radius: 10px; max-width:350px;">
@@ -66,7 +66,7 @@ get_header('custom');
             echo '</div>';
         }
         ?>
-        <div class="logo" style="text-align:center;">অর্ডার করতে সরাসরি কল করুন <br> <a href="tel:01811546874">01811546874</a></div>
+        <div class="logo" style="text-align:center;">অর্ডার করতে সরাসরি কল করুন <br> <a href="tel:01811546841">01811546841</a></div>
     </div>
 
 </section>
