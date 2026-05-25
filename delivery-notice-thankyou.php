@@ -64,8 +64,8 @@
 <div class="notice">
     <div class="notice-title">🇹🇭 এটি থাইল্যান্ডের একটি কার্যকর প্রোডাক্ট</div>
     <div class="dates">
-        <div class="date-box"><span>🏙 ঢাকার ভিতরে: ২৬ – ২৮ মার্চ</span></div>
-        <div class="date-box"><span>📦 ঢাকার বাইরে: ২৭ – ৩০ মার্চ</span></div>
+        <div class="date-box"><span>🏙 ঢাকার ভিতরে: ২–৩ জুন</span></div>
+        <div class="date-box"><span>📦 ঢাকার বাইরে: ২–৪ জুন</span></div>
         <div class="date-box" style="background: #855000;"><span>⏳ ভালো মানের পণ্য</span></div>
         <div class="date-box" style="background: #855000;"><span>✈️ থাইল্যান্ড থেকে আমদানি</span></div>
     </div>

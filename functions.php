@@ -229,8 +229,8 @@ add_filter('woocommerce_checkout_fields', function ($fields) {
 
 	/* Address field */
 	$fields['billing']['billing_address_1']['label']       = 'ঠিকানা';
-	$fields['billing']['billing_address_1']['placeholder'] = 'থানা: রামপুর, জেলা: ঢাকা';
-	//$fields['billing']['billing_address_1']['placeholder'] = 'ঈদের ৬–৭ দিনের পর ডেলিভারি করা হবে। সঠিক ঠিকানা লিখুন।';
+	//$fields['billing']['billing_address_1']['placeholder'] = 'থানা: রামপুর, জেলা: ঢাকা';
+	$fields['billing']['billing_address_1']['placeholder'] = 'ঈদের ৬–৭ দিনের পর ডেলিভারি করা হবে। সঠিক ঠিকানা লিখুন।';
 	$fields['billing']['billing_address_1']['priority']    = 30;
 
 	return $fields;
@@ -404,7 +404,7 @@ add_shortcode('cartflow-custom', function ($atts) {
 				<?php endforeach; ?>
 
 			</div>
-			<?php //include get_template_directory() . '/delivery-notice.php'; ?>
+			<?php include get_template_directory() . '/delivery-notice.php'; ?>
 			<?php echo do_shortcode('[woocommerce_checkout]'); ?>
 		</div>
 	</div>
@@ -461,7 +461,7 @@ function thankyou_video_with_sound_button($order_id)
 ?>
 
 	
-	<?php //include get_template_directory() . '/delivery-notice-thankyou.php'; ?>
+	<?php include get_template_directory() . '/delivery-notice-thankyou.php'; ?>
 	<br>
 	<!-- Video Thumbnail (Image) Section -->
 	<div class="youtube-thumbnail-container" id="youtube-thumbnail-container">

@@ -50,8 +50,8 @@
 <div class="notice">
     <div class="notice-title">🚚 সম্ভাব্য ডেলিভারি সময়</div>
     <div class="dates">
-        <div class="date-box"><span>🏙 ঢাকার ভিতরে: ২৬ – ২৮ মার্চ</span></div>
-        <div class="date-box"><span>📦 ঢাকার বাইরে: ২৭ – ৩০ মার্চ</span></div>
+        <div class="date-box"><span>🏙 ঢাকার ভিতরে: ২–৩ জুন</span></div>
+        <div class="date-box"><span>📦 ঢাকার বাইরে: ২–৪ জুন</span></div>
     </div>
     <div class="tip">✔️ অনুগ্রহ করে এই সময়ের মধ্যে <span style="color: #cc5500;font-weight: 700;">আপনি যেখানে থাকবেন</span>, সেই ঠিকানা দিয়ে অর্ডারটি প্লেস করুন, যাতে ডেলিভারি সহজে সম্পন্ন করা যায়।</div>
 </div>
