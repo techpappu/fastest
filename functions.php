@@ -376,6 +376,10 @@ add_shortcode('cartflow-custom', function ($atts) {
 	<div class="order-form" data-default="<?php echo esc_attr($default_id); ?>">
 
 		<h2 class="form-title">আপনার পছন্দের প্যাকেজটি সিলেক্ট করুন</h2>
+		<p style="display:flex;align-items:center;justify-content:center;gap:8px;margin:0 10px 14px;padding:10px 14px;color:#7a2413;background:#fff5e5;border:1px solid #f2c46d;border-left:4px solid #D4AF37;border-radius:8px;box-shadow:0 6px 18px rgba(196,30,58,0.08);font-weight:400;font-size:10px;line-height:1.5;text-align:center;" role="alert">
+			<span aria-hidden="true">🔥</span>
+			<span>বেশি সাশ্রয় ও দীর্ঘমেয়াদী ব্যবহারের জন্য বড় প্যাকেজ বেছে নিন</span>
+		</p>
 
 		<div class="checkout-wrapper">
 			<div class="checkout-product-selector">
