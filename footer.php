@@ -71,7 +71,7 @@
 	if(document.body.classList.contains("woocommerce-order-received")) {
 		var youtubeVideoID = "5fHzViaZ64A";
 	}else{
-		var youtubeVideoID = "fvgLuO-pZoM"; 
+		var youtubeVideoID = "m_-nt6PdQe0"; //https://www.youtube.com/shorts/m_-nt6PdQe0
 	}
 	 // Replace with the actual video ID
 
