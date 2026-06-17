@@ -1331,7 +1331,7 @@ img {
 /* Hero Section */
 .hero {
 	background: linear-gradient(135deg, #8B6914 0%, #D4AF37 100%);
-	padding: 40px 20px;
+	padding: 20px 20px;
 	text-align: center;
 	position: relative;
 	overflow: hidden;

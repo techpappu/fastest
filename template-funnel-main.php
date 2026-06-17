@@ -20,8 +20,8 @@ get_header('custom');
 
     <div class="hero-content">
 
-        <div class="logo">অর্ডার করতে সরাসরি কল করুন <br> <a href="tel:01811546841">01811546841</a></div>
-
+        <div class="logo"> <a href="tel:01811546841">01811546841</a></div>
+        <a href="#order" class="cta-btn">অর্ডার করতে চাই</a><br><br>
         <div class="product-badge">NATURAL MIXED HONEY</div>
 
         <h1 class="hero-title">ন্যাচারাল মিক্সড মধু</h1>
