@@ -399,16 +399,17 @@ add_shortcode('cartflow-custom', function ($atts) {
 							<p class="product-slogan"><?php echo esc_html($slogan); ?></p>
 						</span>
 						<span style="text-align:right;">
-							<?php 
-								$price = $product->get_sale_price() ? $product->get_sale_price() : $product->get_regular_price();
-								echo wc_price($price); 
+							<?php
+							$price = $product->get_sale_price() ? $product->get_sale_price() : $product->get_regular_price();
+							echo wc_price($price);
 							?>
 						</span>
 					</label>
 				<?php endforeach; ?>
 
 			</div>
-			<?php //include get_template_directory() . '/delivery-notice.php'; ?>
+			<?php //include get_template_directory() . '/delivery-notice.php'; 
+			?>
 			<?php echo do_shortcode('[woocommerce_checkout]'); ?>
 		</div>
 	</div>
@@ -464,8 +465,9 @@ function thankyou_video_with_sound_button($order_id)
 {
 ?>
 
-	
-	<?php //include get_template_directory() . '/delivery-notice-thankyou.php'; ?>
+
+	<?php //include get_template_directory() . '/delivery-notice-thankyou.php'; 
+	?>
 	<br>
 	<!-- Video Thumbnail (Image) Section -->
 	<!-- <div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
@@ -475,8 +477,37 @@ function thankyou_video_with_sound_button($order_id)
 		</div>
 	</div> -->
 	<div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
-		<iframe id="youtube-video" width="100%" height="360" src="https://www.youtube.com/embed/5fHzViaZ64A?autoplay=1&mute=1&playsinline=1&rel=0&controls=0&disablekb=1&fs=0&modestbranding=1&iv_load_policy=3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe
+			id="youtube-video"
+			width="100%"
+			height="360"
+			src="https://www.youtube.com/embed/5fHzViaZ64A?autoplay=1&mute=1&playsinline=1&rel=0&controls=0&disablekb=1&fs=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&hl=en&loop=1&playlist=5fHzViaZ64A&color=white&enablejsapi=1"
+			frameborder="0"
+			allow="autoplay; encrypted-media; picture-in-picture"
+			allowfullscreen>
+		</iframe>
 	</div>
+	<script src="https://www.youtube.com/iframe_api"></script>
+
+	<script>
+		let player;
+
+		function onYouTubeIframeAPIReady() {
+			player = new YT.Player('youtube-video', {
+				events: {
+					onReady: onPlayerReady
+				}
+			});
+		}
+
+		function onPlayerReady(event) {
+			event.target.playVideo();
+
+			// Browser will usually ignore this
+			event.target.unMute();
+			event.target.setVolume(100);
+		}
+	</script>
 	<!-- Modal (Lightbox) Section with YouTube Video Embed -->
 	<div id="video-modal" class="video-modal">
 		<span class="close-modal">&times;</span>
@@ -488,37 +519,36 @@ function thankyou_video_with_sound_button($order_id)
 
 add_action('woocommerce_product_options_general_product_data', 'add_product_slogan_field');
 
-function add_product_slogan_field() {
+function add_product_slogan_field()
+{
 
-    woocommerce_wp_text_input(
-        array(
-            'id' => '_product_slogan',
-            'label' => __('Product Slogan', 'woocommerce'),
-            'placeholder' => 'Short product slogan',
-            'desc_tip' => true,
-            'description' => __('Enter a short slogan for this product.', 'woocommerce')
-        )
-    );
-
+	woocommerce_wp_text_input(
+		array(
+			'id' => '_product_slogan',
+			'label' => __('Product Slogan', 'woocommerce'),
+			'placeholder' => 'Short product slogan',
+			'desc_tip' => true,
+			'description' => __('Enter a short slogan for this product.', 'woocommerce')
+		)
+	);
 }
 add_action('woocommerce_process_product_meta', 'save_product_slogan_field');
 
-function save_product_slogan_field($post_id) {
+function save_product_slogan_field($post_id)
+{
 
-    $slogan = isset($_POST['_product_slogan']) ? sanitize_text_field($_POST['_product_slogan']) : '';
+	$slogan = isset($_POST['_product_slogan']) ? sanitize_text_field($_POST['_product_slogan']) : '';
 
-    update_post_meta($post_id, '_product_slogan', $slogan);
-
+	update_post_meta($post_id, '_product_slogan', $slogan);
 }
 //hide order number from thank you page but keep it in admin order list and email
-add_filter( 'woocommerce_order_number', function( $order_number, $order ) {
+add_filter('woocommerce_order_number', function ($order_number, $order) {
 
-    // Only affect Thank You (order received) page
-    if ( is_order_received_page() ) {
-        return '';
-    }
+	// Only affect Thank You (order received) page
+	if (is_order_received_page()) {
+		return '';
+	}
 
-    return $order_number;
-
-}, 10, 2 );
-include get_template_directory() . '/google-template-functions.php';	
+	return $order_number;
+}, 10, 2);
+include get_template_directory() . '/google-template-functions.php';
