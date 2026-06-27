@@ -468,13 +468,15 @@ function thankyou_video_with_sound_button($order_id)
 	<?php //include get_template_directory() . '/delivery-notice-thankyou.php'; ?>
 	<br>
 	<!-- Video Thumbnail (Image) Section -->
-	<div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
+	<!-- <div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
 		<img id="youtube-thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/imgi_2_poster-11-y.webp" alt="YouTube Video Thumbnail" />
 		<div class="play-button">
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/play-button.webp" alt="Play YouTube Video">
 		</div>
+	</div> -->
+	<div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
+		<iframe id="youtube-video" width="100%" height="360" src="https://www.youtube.com/embed/5fHzViaZ64A?autoplay=1&mute=1&playsinline=1&rel=0&controls=0&disablekb=1&fs=0&modestbranding=1&iv_load_policy=3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
-
 	<!-- Modal (Lightbox) Section with YouTube Video Embed -->
 	<div id="video-modal" class="video-modal">
 		<span class="close-modal">&times;</span>
