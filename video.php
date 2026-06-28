@@ -1,7 +1,13 @@
 <!-- here need all video code here. -->
 <div class="video-section">
     <div class="video-wrapper">
-        <video id="hero-video" controls playsinline preload="none" poster="<?php echo get_template_directory_uri(); ?>/assets/images/poster_4.webp"></video>
+        <iframe id="hero-youtube-video"
+            src="https://www.youtube.com/embed/kuAI5tD2mRQ?autoplay=1&mute=1&playsinline=1&rel=0&controls=0&disablekb=1&fs=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&hl=en&loop=1&color=white&enablejsapi=1"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            onload="setTimeout(function(){document.getElementById('video-placeholder').classList.add('hidden')},2000)"
+            allowfullscreen></iframe>
 
         <!-- Premium Custom Loading Placeholder Overlay -->
         <div id="video-placeholder" class="video-placeholder">
@@ -53,12 +59,12 @@
         }
     }
 
-    .video-wrapper video {
+    .video-wrapper iframe {
         width: 100%;
         height: 100%;
-        object-fit: cover;
         display: block;
         border-radius: 18px;
+        border: 0;
     }
 
     /* Custom Placeholder Overlay */
@@ -197,58 +203,34 @@
         }
     }
 </style>
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-    window.addEventListener("load", () => {
-        const video = document.getElementById("hero-video");
-        const placeholder = document.getElementById("video-placeholder");
+    let player;
 
-        // Load the video source dynamically after all resources are loaded
-        video.src = "<?php echo get_template_directory_uri(); ?>/assets/royalwellness.mp4";
-        video.load();
-
-        const hidePlaceholder = () => {
-            placeholder.classList.add("hidden");
-        };
-
-        // Hide placeholder when the video begins playing
-        video.addEventListener("play", hidePlaceholder);
-        video.addEventListener("playing", hidePlaceholder);
-
-        const startVideo = () => {
-            // Attempt to play the video with audio
-            video.play()
-                .then(() => {
-                    hidePlaceholder();
-                    cleanupListeners();
-                })
-                .catch(err => {
-                    console.log("Playback with audio failed, attempting muted playback:", err);
-                    // Fallback: Mute video and play (always allowed by browsers on user touch/gesture)
-                    video.muted = true;
-                    video.play()
-                        .then(() => {
-                            hidePlaceholder();
-                            cleanupListeners();
-                        })
-                        .catch(fallbackErr => {
-                            console.log("Muted playback fallback failed:", fallbackErr);
-                        });
-                });
-        };
-
-        const cleanupListeners = () => {
-            document.removeEventListener("click", startVideo);
-            document.removeEventListener("touchstart", startVideo);
-        };
-
-        // Direct placeholder click handles user intent immediately
-        placeholder.addEventListener("click", (e) => {
-            e.stopPropagation();
-            startVideo();
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('hero-youtube-video', {
+            events: {
+                onReady: onPlayerReady
+            }
         });
+    }
 
-        // Global page click/touchstart to trigger playback on first mobile touch or click
-        document.addEventListener("click", startVideo);
-        document.addEventListener("touchstart", startVideo);
+    function onPlayerReady(event) {
+        event.target.playVideo();
+        event.target.unMute();
+        event.target.setVolume(100);
+        setTimeout(() => {
+            document.getElementById("video-placeholder").classList.add("hidden");
+        }, 2000);
+    }
+
+
+    document.getElementById("video-placeholder").addEventListener("click", (e) => {
+        e.stopPropagation();
+        document.getElementById("video-placeholder").classList.add("hidden");
+        if (!player) return;
+        player.playVideo();
+        player.unMute();
+        player.setVolume(100);
     });
 </script>

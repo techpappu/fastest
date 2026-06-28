@@ -481,7 +481,7 @@ function thankyou_video_with_sound_button($order_id)
 			id="youtube-video"
 			width="100%"
 			height="360"
-			src="https://www.youtube.com/embed/5fHzViaZ64A?autoplay=1&mute=1&playsinline=1&rel=0&controls=0&disablekb=1&fs=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&hl=en&loop=1&playlist=5fHzViaZ64A&color=white&enablejsapi=1"
+			src="https://www.youtube.com/embed/uD6D2nx5BhA?autoplay=1&mute=1&playsinline=1&rel=0&controls=0&disablekb=1&fs=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&hl=en&loop=1&color=white&enablejsapi=1"
 			frameborder="0"
 			allow="autoplay; encrypted-media; picture-in-picture"
 			allowfullscreen>
