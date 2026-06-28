@@ -27,7 +27,7 @@
     .video-section {
         margin: 20px auto;
         width: 100%;
-        max-width: 170px;
+        max-width: 300px;
         text-align: center;
         padding: 0 !important;
     }
@@ -198,11 +198,11 @@
     }
 </style>
 <script>
-    window.addEventListener("load", () => {
+    document.addEventListener("DOMContentLoaded", () => {
         const video = document.getElementById("hero-video");
         const placeholder = document.getElementById("video-placeholder");
 
-        // Load the video source dynamically
+        // Load the video source dynamically as soon as the DOM is ready
         video.src = "<?php echo get_template_directory_uri(); ?>/assets/royalwellness.mp4";
         video.load();
 
@@ -215,11 +215,25 @@
         video.addEventListener("playing", hidePlaceholder);
 
         const startVideo = () => {
-            video.play().catch(err => {
-                console.log("Playback attempt caught:", err);
-            });
-            hidePlaceholder();
-            cleanupListeners();
+            // Attempt to play the video with audio
+            video.play()
+                .then(() => {
+                    hidePlaceholder();
+                    cleanupListeners();
+                })
+                .catch(err => {
+                    console.log("Playback with audio failed, attempting muted playback:", err);
+                    // Fallback: Mute video and play (always allowed by browsers on user touch/gesture)
+                    video.muted = true;
+                    video.play()
+                        .then(() => {
+                            hidePlaceholder();
+                            cleanupListeners();
+                        })
+                        .catch(fallbackErr => {
+                            console.log("Muted playback fallback failed:", fallbackErr);
+                        });
+                });
         };
 
         const cleanupListeners = () => {
@@ -233,7 +247,7 @@
             startVideo();
         });
 
-        // Global page click/touchstart to match previous behavior
+        // Global page click/touchstart to trigger playback on first mobile touch or click
         document.addEventListener("click", startVideo);
         document.addEventListener("touchstart", startVideo);
     });

@@ -23,14 +23,10 @@ get_header('custom');
         <div class="logo"> <a href="tel:01811546841">01811546841</a></div>
         <a href="#order" class="cta-btn" style="background: #e44708;color: white;">অর্ডার করতে চাই</a><br><br>
         <div class="product-badge">NATURAL MIXED HONEY</div>
-
-        <h1 class="hero-title">ন্যাচারাল মিক্সড মধু</h1>
-
-        <p class="hero-subtitle">সেরা মধুগুলোর সবচেয়ে শক্তিশালী কম্বিনেশন</p>
-
-        <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
         <?php include('video.php'); ?>
-
+        <h1 class="hero-title">ন্যাচারাল মিক্সড মধু</h1>
+        <p class="hero-subtitle">সেরা মধুগুলোর সবচেয়ে শক্তিশালী কম্বিনেশন</p>
+        <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
     </div>
 
 </section>
