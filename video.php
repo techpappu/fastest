@@ -198,11 +198,11 @@
     }
 </style>
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("load", () => {
         const video = document.getElementById("hero-video");
         const placeholder = document.getElementById("video-placeholder");
 
-        // Load the video source dynamically as soon as the DOM is ready
+        // Load the video source dynamically after all resources are loaded
         video.src = "<?php echo get_template_directory_uri(); ?>/assets/royalwellness.mp4";
         video.load();
 
