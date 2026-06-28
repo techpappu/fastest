@@ -29,6 +29,7 @@ get_header('custom');
         <p class="hero-subtitle">সেরা মধুগুলোর সবচেয়ে শক্তিশালী কম্বিনেশন</p>
 
         <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+        <?php include('video.php'); ?>
 
     </div>
 
