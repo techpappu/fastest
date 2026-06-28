@@ -25,7 +25,7 @@
 
 <style>
     .video-section {
-        margin: 20px auto;
+        margin: 0 auto;
         width: 100%;
         max-width: 300px;
         text-align: center;
