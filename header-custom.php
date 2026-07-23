@@ -33,7 +33,7 @@
       </div>
    </section> -->
    <div>
-      <a href="tel:01811546874" class="sticky-call">
+      <a href="tel:8809648110184" class="sticky-call">
          📞 ফোন করুন
       </a>
    </div>
