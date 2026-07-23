@@ -1381,6 +1381,16 @@ img {
 	border-radius: 12px;
 	box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
 	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.call-notice:hover,
+.call-notice:focus {
+	transform: translateY(-2px);
+	box-shadow: 0 11px 26px rgba(0, 0, 0, 0.32);
+	outline: none;
 }
 
 .call-notice__icon {
@@ -1425,8 +1435,8 @@ img {
 	box-shadow: 0 4px 12px rgba(255, 215, 0, 0.28);
 }
 
-.call-notice__phone:hover,
-.call-notice__phone:focus {
+.call-notice:hover .call-notice__phone,
+.call-notice:focus .call-notice__phone {
 	background: #fff;
 	color: #C41E3A;
 }
