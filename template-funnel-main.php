@@ -35,6 +35,10 @@ get_header('custom');
     </div>
 
 </section>
+<?php
+// Outputs nothing unless this page has Facebook review images selected.
+require get_template_directory() . '/facebook-review-slider.php';
+; ?>
 
 
 
@@ -45,7 +49,8 @@ get_header('custom');
     <h2 class="trust-title">সম্পূর্ণ ক্যাশ অন ডেলিভারি</h2>
 
     <p class="trust-text">
-        বিশেষ সময়ের জন্য কি খুঁজছেন একটু বাড়তি শক্তি? তাহলে শুনে নিন এক মিনিটে natural Mixd honey এর রাজকীয় কথা!" natural Mixd honey শুধু রাজাদের জন্য না বরং আপনার ভেতরের রাজাকে জাগিয়ে তোলার জন্য!
+        বিশেষ সময়ের জন্য কি খুঁজছেন একটু বাড়তি শক্তি? তাহলে শুনে নিন এক মিনিটে natural Mixd honey এর রাজকীয় কথা!"
+        natural Mixd honey শুধু রাজাদের জন্য না বরং আপনার ভেতরের রাজাকে জাগিয়ে তোলার জন্য!
     </p>
 
 
@@ -102,7 +107,8 @@ get_header('custom');
 
                 <div class="product-image" style="background: #D4AF37; padding: 20px; border-radius: 10px;">
 
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/10_pcs.webp" width="100%" height="auto" alt="">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/10_pcs.webp" width="100%"
+                        height="auto" alt="">
 
                 </div>
 
@@ -168,9 +174,11 @@ get_header('custom');
         <p class="benefits-subtitle">প্রতিটা রাত মধুময় করে তুলুন</p>
         <!-- Video Thumbnail (Image) Section -->
         <div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
-            <img id="youtube-thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/landing.webp" alt="YouTube Video Thumbnail" />
+            <img id="youtube-thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/landing.webp"
+                alt="YouTube Video Thumbnail" />
             <div class="play-button">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/play-button.webp" alt="Play YouTube Video">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/play-button.webp"
+                    alt="Play YouTube Video">
             </div>
         </div>
 
@@ -178,7 +186,9 @@ get_header('custom');
         <div id="video-modal" class="video-modal">
             <span class="close-modal">&times;</span>
             <!-- YouTube Embed Video -->
-            <iframe id="youtube-video" width="640" height="360" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="youtube-video" width="640" height="360" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
         </div>
 
         <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
@@ -219,13 +229,16 @@ get_header('custom');
 
 <section class="info-section" style="background: #f9f9f9;">
     <div class="container">
-        <h2 class="text-center mb-20" style="color: #C41E3A; font-size: clamp(20px, 4vw, 28px);">সাধারণ প্রশ্ন উত্তর</h2>
+        <h2 class="text-center mb-20" style="color: #C41E3A; font-size: clamp(20px, 4vw, 28px);">সাধারণ প্রশ্ন উত্তর
+        </h2>
         <div class="info-card">
             <ul class="info-list">
                 <li>বিস্তারিত বলুন</li>
-                <p>Natural Mixed Honey হলো প্রাকৃতিক মধুর সাথে বাছাই করা ভেষজ ও পুষ্টিকর উপাদানের সমন্বয়ে তৈরি একটি বিশেষ ফর্মুলা। এটি শরীরের প্রাকৃতিক শক্তি, সহনশীলতা ও দৈনন্দিন এনার্জি সাপোর্ট করতে সাহায্য করে।</p>
+                <p>Natural Mixed Honey হলো প্রাকৃতিক মধুর সাথে বাছাই করা ভেষজ ও পুষ্টিকর উপাদানের সমন্বয়ে তৈরি একটি
+                    বিশেষ ফর্মুলা। এটি শরীরের প্রাকৃতিক শক্তি, সহনশীলতা ও দৈনন্দিন এনার্জি সাপোর্ট করতে সাহায্য করে।</p>
                 <li>মিক্সড হানি কি?</li>
-                <p>এই মধু শরীরের ভেতর থেকে শক্তি জাগিয়ে তোলে, ক্লান্তি কমাতে সহায়তা করে এবং দৈনন্দিন জীবনে ফ্রেশ ও অ্যাকটিভ থাকতে সাহায্য করে।</p>
+                <p>এই মধু শরীরের ভেতর থেকে শক্তি জাগিয়ে তোলে, ক্লান্তি কমাতে সহায়তা করে এবং দৈনন্দিন জীবনে ফ্রেশ ও
+                    অ্যাকটিভ থাকতে সাহায্য করে।</p>
                 <li>অগ্রিম টাকা দিতে হবে</li>
                 <p>না, অগ্রিম কোন টাকা দিতে হবে না</p>
                 <li>কোন প্রকার সাইড এফেক্ট হবে</li>
@@ -300,7 +313,7 @@ get_header('custom');
 <?php get_footer(); ?>
 
 <script>
-    (function() {
+    (function () {
 
         const countdown = document.querySelector('.countdown');
         if (!countdown) return;
