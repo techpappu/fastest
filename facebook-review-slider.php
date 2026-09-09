@@ -25,23 +25,23 @@ $fastest_slider_id = wp_unique_id('fastest-facebook-reviews-');
 	<h2 class="ffr-heading">ব্যবহারকারীদের মন্তব্য দেখুন</h2>
 	<div class="ffr-stage">
 		<div class="ffr-viewport">
-		<div class="ffr-track">
-			<?php foreach ($fastest_review_image_ids as $fastest_image_id):
-				$fastest_full_url = wp_get_attachment_image_url($fastest_image_id, 'full');
-				if (!$fastest_full_url) {
-					continue;
-				}
-				?>
-				<article class="ffr-slide">
-					<?php echo wp_get_attachment_image($fastest_image_id, 'medium_large', false, array(
-						'class' => 'ffr-image',
-						'loading' => 'lazy',
-						'decoding' => 'async',
-						'sizes' => '(max-width: 767px) calc(100vw - 84px), (max-width: 1400px) calc((100vw - 136px) / 3), 421px',
-					)); ?>
-				</article>
-			<?php endforeach; ?>
-		</div>
+			<div class="ffr-track">
+				<?php foreach ($fastest_review_image_ids as $fastest_image_id):
+					$fastest_full_url = wp_get_attachment_image_url($fastest_image_id, 'full');
+					if (!$fastest_full_url) {
+						continue;
+					}
+					?>
+					<article class="ffr-slide">
+						<?php echo wp_get_attachment_image($fastest_image_id, 'medium_large', false, array(
+							'class' => 'ffr-image',
+							'loading' => 'lazy',
+							'decoding' => 'async',
+							'sizes' => '(max-width: 767px) calc(100vw - 84px), (max-width: 1400px) calc((100vw - 136px) / 3), 421px',
+						)); ?>
+					</article>
+				<?php endforeach; ?>
+			</div>
 		</div>
 		<button class="ffr-arrow ffr-prev" type="button"
 			aria-label="<?php esc_attr_e('Previous reviews', 'fastest-theme'); ?>">&#10094;</button>
@@ -56,10 +56,11 @@ $fastest_slider_id = wp_unique_id('fastest-facebook-reviews-');
 		--ffr-gap: 20px;
 		position: relative;
 		width: 100%;
-		max-width: 1400px;
-		margin: 30px auto;
-		padding: 0 48px 35px;
-		box-sizing: border-box
+		max-width: 100%;
+		margin: 0px auto;
+		padding: 30px 48px 35px;
+		box-sizing: border-box;
+		background: #ccdffc;
 	}
 
 	#<?php echo esc_attr($fastest_slider_id); ?> * {
@@ -69,21 +70,14 @@ $fastest_slider_id = wp_unique_id('fastest-facebook-reviews-');
 	#<?php echo esc_attr($fastest_slider_id); ?> .ffr-heading {
 		margin: 0 0 26px;
 		text-align: center;
-		color: #1c1e21;
-		font-size: clamp(26px, 3vw, 40px);
+		color: #fff;
+		font-size: clamp(20px, 3vw, 40px);
 		font-weight: 700;
-		line-height: 1.25;
-		letter-spacing: 0
-	}
-
-	#<?php echo esc_attr($fastest_slider_id); ?> .ffr-heading::after {
-		content: "";
-		display: block;
-		width: 72px;
-		height: 4px;
-		margin: 12px auto 0;
-		border-radius: 999px;
-		background: #1877f2
+		line-height: 2.25;
+		letter-spacing: 0;
+		background: #1877F2;
+		padding: 5px;
+		border-radius: 5px;
 	}
 
 	#<?php echo esc_attr($fastest_slider_id); ?> .ffr-stage {
@@ -115,7 +109,7 @@ $fastest_slider_id = wp_unique_id('fastest-facebook-reviews-');
 		display: block;
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
+		object-fit: contain;
 		border-radius: 10px
 	}
 
@@ -188,6 +182,14 @@ $fastest_slider_id = wp_unique_id('fastest-facebook-reviews-');
 		#<?php echo esc_attr($fastest_slider_id); ?> .ffr-slide {
 			flex: 0 0 100%;
 			width: 100%
+		}
+
+		#<?php echo esc_attr($fastest_slider_id); ?> .ffr-prev {
+			left: -34px
+		}
+
+		#<?php echo esc_attr($fastest_slider_id); ?> .ffr-next {
+			right: -34px
 		}
 	}
 
