@@ -29,9 +29,6 @@ get_header('custom');
         <div class="product-badge">NATURAL MIXED HONEY</div>
         <?php //include('video.php'); 
         ?>
-        <h1 class="hero-title">ন্যাচারাল মিক্সড মধু</h1>
-        <p class="hero-subtitle">সেরা মধুগুলোর সবচেয়ে শক্তিশালী কম্বিনেশন</p>
-        <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
     </div>
 
 </section>
