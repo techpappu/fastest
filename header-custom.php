@@ -37,6 +37,12 @@
          📞 ফোন করুন
       </a>
    </div>
+   <div class="sticky-bottom-call-bar">
+      <a href="tel:8809613826917" class="sticky-bottom-call-bar__button">
+         <span aria-hidden="true">☎</span>
+         কল করে অর্ডার করুন
+      </a>
+   </div>
    <style>
       .sticky-call {
          position: fixed;
@@ -57,5 +63,48 @@
       .sticky-call:hover {
          background-color: #218838;
          transform: scale(1.05);
+      }
+
+      .sticky-bottom-call-bar {
+         position: fixed;
+         right: 0;
+         bottom: 0;
+         left: 0;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         min-height: 42px;
+         padding: 4px 10px;
+         background: #fff;
+         border-top: 1px solid #eee;
+         box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+         box-sizing: border-box;
+         z-index: 9998;
+      }
+
+      .sticky-bottom-call-bar__button {
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         gap: 5px;
+         min-height: 32px;
+         padding: 3px 12px;
+         color: #f59b23;
+         background: #fff;
+         border: 2px solid #f59b23;
+         border-radius: 4px;
+         box-sizing: border-box;
+         font-size: 12px;
+         font-weight: 700;
+         line-height: 1.2;
+         text-decoration: none;
+         transition: color 0.2s ease, background-color 0.2s ease;
+      }
+
+      .sticky-bottom-call-bar__button:hover,
+      .sticky-bottom-call-bar__button:focus {
+         color: #fff;
+         background: #f59b23;
+         text-decoration: none;
       }
    </style>
