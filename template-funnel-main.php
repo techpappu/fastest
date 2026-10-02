@@ -34,7 +34,7 @@ get_header('custom');
 </section>
 <?php
 // Outputs nothing unless this page has Facebook review images selected.
-require get_template_directory() . '/facebook-review-slider.php';
+//require get_template_directory() . '/facebook-review-slider.php';
 ; ?>
 
 

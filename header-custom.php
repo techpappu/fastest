@@ -32,11 +32,11 @@
          </marquee>
       </div>
    </section> -->
-   <div>
+   <!-- <div>
       <a href="tel:+8809648110184" class="sticky-call">
          📞 ফোন করুন
       </a>
-   </div>
+   </div> -->
    <div class="sticky-bottom-call-bar">
       <a href="tel:+8809648110184" class="sticky-bottom-call-bar__button">
          <span aria-hidden="true">☎</span>

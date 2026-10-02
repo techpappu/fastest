@@ -23,15 +23,15 @@
 
 <head>
 
-   <meta charset="<?php bloginfo('charset'); ?>">
+	<meta charset="<?php bloginfo('charset'); ?>">
 
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-   <link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 
 
-   <?php wp_head(); ?>
+	<?php wp_head(); ?>
 
 </head>
 
@@ -42,16 +42,16 @@
 	<main id="primary" class="site-main">
 
 		<?php
-		while ( have_posts() ) :
+		while (have_posts()):
 			the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+			get_template_part('template-parts/content', 'page');
 
 			// Outputs nothing unless this page has Facebook review images selected.
-			require get_template_directory() . '/facebook-review-slider.php';
-
+			//require get_template_directory() . '/facebook-review-slider.php';
+		
 			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
+			if (comments_open() || get_comments_number()):
 				comments_template();
 			endif;
 
@@ -60,6 +60,6 @@
 
 	</main><!-- #main -->
 
-<?php
-//get_sidebar();
-get_footer();
+	<?php
+	//get_sidebar();
+	get_footer();
