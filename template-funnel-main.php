@@ -163,35 +163,7 @@ get_header('custom');
 
 <!-- Benefits Banner -->
 
-<section class="benefits-section">
-
-    <div class="container">
-
-        <h2 class="benefits-title">একটানা 40+ মিনিট খেলুন</h2>
-        <p class="benefits-subtitle">প্রতিটা রাত মধুময় করে তুলুন</p>
-        <!-- Video Thumbnail (Image) Section -->
-        <div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
-            <img id="youtube-thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/landing.webp"
-                alt="YouTube Video Thumbnail" />
-            <div class="play-button">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/play-button.webp"
-                    alt="Play YouTube Video">
-            </div>
-        </div>
-
-        <!-- Modal (Lightbox) Section with YouTube Video Embed -->
-        <div id="video-modal" class="video-modal">
-            <span class="close-modal">&times;</span>
-            <!-- YouTube Embed Video -->
-            <iframe id="youtube-video" width="640" height="360" frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-        </div>
-
-        <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
-    </div>
-
-</section>
+<?php // get_template_part('template-parts/benefits-video-section'); // Uncomment this line to show the section. ?>
 
 
 

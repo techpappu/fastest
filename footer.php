@@ -67,31 +67,32 @@
 	// Get the close button inside the modal
 	var closeBtn = document.querySelector(".close-modal");
 
-	// The video ID from the YouTube link
-	if(document.body.classList.contains("woocommerce-order-received")) {
-		var youtubeVideoID = "5fHzViaZ64A";
-	}else{
-		var youtubeVideoID = "m_-nt6PdQe0"; //https://www.youtube.com/shorts/m_-nt6PdQe0
-	}
-	 // Replace with the actual video ID
+	if (modal && thumbnail && youtubeVideo && closeBtn && !thumbnail.closest('.benefits-video-self-contained')) {
+		// The video ID from the YouTube link
+		if(document.body.classList.contains("woocommerce-order-received")) {
+			var youtubeVideoID = "5fHzViaZ64A";
+		}else{
+			var youtubeVideoID = "m_-nt6PdQe0"; //https://www.youtube.com/shorts/m_-nt6PdQe0
+		}
 
-	// When the thumbnail is clicked, open the modal and play the video
-	thumbnail.onclick = function() {
-		modal.style.display = "flex";
-		youtubeVideo.src = "https://www.youtube.com/embed/" + youtubeVideoID + "?autoplay=1";
-	}
+		// When the thumbnail is clicked, open the modal and play the video
+		thumbnail.onclick = function() {
+			modal.style.display = "flex";
+			youtubeVideo.src = "https://www.youtube.com/embed/" + youtubeVideoID + "?autoplay=1";
+		}
 
-	// When the close button is clicked, close the modal and stop the video
-	closeBtn.onclick = function() {
-		modal.style.display = "none";
-		youtubeVideo.src = ""; // Stop the video by clearing the iframe source
-	}
-
-	// Close the modal if the user clicks anywhere outside the video
-	window.onclick = function(event) {
-		if (event.target == modal) {
+		// When the close button is clicked, close the modal and stop the video
+		closeBtn.onclick = function() {
 			modal.style.display = "none";
 			youtubeVideo.src = ""; // Stop the video by clearing the iframe source
+		}
+
+		// Close the modal if the user clicks anywhere outside the video
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+				youtubeVideo.src = ""; // Stop the video by clearing the iframe source
+			}
 		}
 	}
 </script>
