@@ -20,8 +20,8 @@ get_header('custom');
 
     <div class="hero-content">
 
-        <div class="logo"> <a href="tel:8809613826917">01811546841</a></div>
-        <a class="call-notice call-notice--hero" href="tel:8809613826917" aria-label="কল করুন">
+        <div class="logo"> <a href="tel:8809648110184">09648110184</a></div>
+        <a class="call-notice call-notice--hero" href="tel:8809648110184" aria-label="কল করুন">
             <span class="call-notice__icon" aria-hidden="true">☎</span>
             <p>মিনিট দিয়েই কল করুন। সাধারণ কল চার্জ প্রযোজ্য।</p>
         </a>
@@ -283,12 +283,12 @@ require get_template_directory() . '/facebook-review-slider.php';
     <div class="container">
 
         <?php the_content(); ?>
-        <a class="call-notice call-notice--order" href="tel:8809613826917" aria-label="অর্ডার করতে কল করুন">
+        <a class="call-notice call-notice--order" href="tel:8809648110184" aria-label="অর্ডার করতে কল করুন">
             <span class="call-notice__icon" aria-hidden="true">☎</span>
             <div>
                 <strong>অর্ডার করতে সরাসরি কল করুন</strong>
                 <p>মিনিট দিয়েই কল করুন। সাধারণ কল চার্জ প্রযোজ্য।</p>
-                <span class="call-notice__phone">01811546841</span>
+                <span class="call-notice__phone">09648110184</span>
             </div>
         </a>
     </div>

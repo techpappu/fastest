@@ -33,14 +33,14 @@
       </div>
    </section> -->
    <div>
-      <a href="tel:8809613826917" class="sticky-call">
+      <a href="tel:+8809648110184" class="sticky-call">
          📞 ফোন করুন
       </a>
    </div>
    <div class="sticky-bottom-call-bar">
-      <a href="tel:8809613826917" class="sticky-bottom-call-bar__button">
+      <a href="tel:+8809648110184" class="sticky-bottom-call-bar__button">
          <span aria-hidden="true">☎</span>
-         কল করে অর্ডার করুন
+         কল করে অর্ডার করুন: 09648-110184
       </a>
    </div>
    <style>
