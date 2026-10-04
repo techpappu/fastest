@@ -14,7 +14,7 @@
 
 <footer>
 	<div class="container">
-		<p>&copy; ২০২৪ Royal Natural Mixed Honey. সর্বস্বত্ব সংরক্ষিত।</p>
+		<p>&copy; ২০২৬ Natural Mixed Honey. সর্বস্বত্ব সংরক্ষিত।</p>
 	</div>
 </footer>
 </div><!-- #page -->
@@ -22,7 +22,7 @@
 <?php wp_footer(); ?>
 
 <script>
-	jQuery(function($) {
+	jQuery(function ($) {
 
 		// Make sure WooCommerce checkout JS is loaded
 		if (typeof wc_checkout_params === 'undefined') return;
@@ -34,14 +34,14 @@
 			$.post(wc_checkout_params.ajax_url, {
 				action: 'switch_checkout_product',
 				product_id: productId
-			}).done(function() {
+			}).done(function () {
 				// Trigger WooCommerce to refresh the checkout form
 				$('body').trigger('update_checkout');
 			});
 		}
 
 		// Load default product after page load
-		$(document).ready(function() {
+		$(document).ready(function () {
 			let defaultProduct = $('.order-form').data('default');
 			if (defaultProduct) {
 				switchProduct(defaultProduct);
@@ -49,7 +49,7 @@
 		});
 
 		// Switch product on radio change
-		$(document).on('change', 'input[name="checkout_product"]', function() {
+		$(document).on('change', 'input[name="checkout_product"]', function () {
 			let selectedProduct = $(this).val();
 			switchProduct(selectedProduct);
 		});
@@ -69,26 +69,26 @@
 
 	if (modal && thumbnail && youtubeVideo && closeBtn && !thumbnail.closest('.benefits-video-self-contained')) {
 		// The video ID from the YouTube link
-		if(document.body.classList.contains("woocommerce-order-received")) {
+		if (document.body.classList.contains("woocommerce-order-received")) {
 			var youtubeVideoID = "5fHzViaZ64A";
-		}else{
+		} else {
 			var youtubeVideoID = "m_-nt6PdQe0"; //https://www.youtube.com/shorts/m_-nt6PdQe0
 		}
 
 		// When the thumbnail is clicked, open the modal and play the video
-		thumbnail.onclick = function() {
+		thumbnail.onclick = function () {
 			modal.style.display = "flex";
 			youtubeVideo.src = "https://www.youtube.com/embed/" + youtubeVideoID + "?autoplay=1";
 		}
 
 		// When the close button is clicked, close the modal and stop the video
-		closeBtn.onclick = function() {
+		closeBtn.onclick = function () {
 			modal.style.display = "none";
 			youtubeVideo.src = ""; // Stop the video by clearing the iframe source
 		}
 
 		// Close the modal if the user clicks anywhere outside the video
-		window.onclick = function(event) {
+		window.onclick = function (event) {
 			if (event.target == modal) {
 				modal.style.display = "none";
 				youtubeVideo.src = ""; // Stop the video by clearing the iframe source
