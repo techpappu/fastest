@@ -20,10 +20,13 @@ get_header('custom');
 
     <div class="hero-content">
 
-        <div class="logo"> <a href="tel:8809648110184">01811546841</a></div>
-        <a class="call-notice call-notice--hero" href="tel:8809648110184" aria-label="কল করুন">
+        <a class="call-notice call-notice--order" href="tel:8809648110184" aria-label="অর্ডার করতে কল করুন">
             <span class="call-notice__icon" aria-hidden="true">☎</span>
-            <p>মিনিট দিয়েই কল করুন। সাধারণ কল চার্জ প্রযোজ্য।</p>
+            <div>
+                <strong>অর্ডার করতে সরাসরি কল করুন</strong>
+                <p>মিনিট দিয়েই কল করুন। সাধারণ কল চার্জ প্রযোজ্য।</p>
+                <span class="call-notice__phone">01811546841</span>
+            </div>
         </a>
         <a href="#order" class="cta-btn" style="background: #e44708;color: white;">অর্ডার করতে চাই</a><br><br>
         <div class="product-badge">NATURAL MIXED HONEY</div>

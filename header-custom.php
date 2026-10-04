@@ -40,7 +40,7 @@
    <div class="sticky-bottom-call-bar">
       <a href="tel:+8809648110184" class="sticky-bottom-call-bar__button">
          <span aria-hidden="true">☎</span>
-         কল করে অর্ডার করুন: 09648-110184
+         কল করে অর্ডার করুন: 01811546841
       </a>
    </div>
    <style>
