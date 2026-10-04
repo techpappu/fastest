@@ -45,7 +45,7 @@ get_header('custom');
         </style>
         <div class="hero-first-view">
             <img class="hero-poster"
-                src="<?php echo get_template_directory_uri(); ?>/assets/images/bold/Poster_Oct_13.webp"
+                src="<?php echo get_template_directory_uri(); ?>/assets/images/bold-low/Poster_Oct_13.webp"
                 alt="Natural Mixed Honey" width="auto" height="250" fetchpriority="high">
             <a href="#order" class="cta-btn hero-first-view__cta">অর্ডার করতে চাই</a>
         </div>
@@ -160,8 +160,8 @@ get_header('custom');
                 <div class="product-image"
                     style="background: #D4AF37; padding: 5px; border-radius: 10px;max-width:350px;">
 
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bold/Poster_Sep_06.webp"
-                        width="100%" height="auto" alt="">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bold-low/Poster_Sep_06.webp"
+                        width="100%" height="auto" alt="" loading="lazy" decoding="async">
 
                 </div>
 
@@ -259,7 +259,7 @@ $bold_gallery_images = array(
         <div class="bold-gallery__track" data-autoplay="2000">
             <?php foreach ($bold_gallery_images as $bold_gallery_image): ?>
                 <div class="bold-gallery__item">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/bold/' . rawurlencode($bold_gallery_image)); ?>"
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/bold-low/' . rawurlencode($bold_gallery_image)); ?>"
                         alt="" loading="lazy" decoding="async">
                 </div>
             <?php endforeach; ?>
@@ -370,7 +370,7 @@ $bold_gallery_images = array(
             </div>
             <div class="info-card"
                 style="background: linear-gradient(135deg, #2d5016 0%, #5a8f3a 100%); color: white;padding:10px;">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bold/Poster_Sep_11.webp" alt="">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bold-low/Poster_Sep_11.webp" alt="" loading="lazy" decoding="async">
             </div>
         </div>
     </div>
