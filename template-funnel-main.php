@@ -20,7 +20,7 @@ get_header('custom');
 
     <div class="hero-content">
 
-        <div class="logo"> <a href="tel:8809648110184">09648110184</a></div>
+        <div class="logo"> <a href="tel:8809648110184">01811546841</a></div>
         <a class="call-notice call-notice--hero" href="tel:8809648110184" aria-label="কল করুন">
             <span class="call-notice__icon" aria-hidden="true">☎</span>
             <p>মিনিট দিয়েই কল করুন। সাধারণ কল চার্জ প্রযোজ্য।</p>
@@ -260,7 +260,7 @@ get_header('custom');
             <div>
                 <strong>অর্ডার করতে সরাসরি কল করুন</strong>
                 <p>মিনিট দিয়েই কল করুন। সাধারণ কল চার্জ প্রযোজ্য।</p>
-                <span class="call-notice__phone">09648110184</span>
+                <span class="call-notice__phone">01811546841</span>
             </div>
         </a>
     </div>
