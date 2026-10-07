@@ -47,7 +47,7 @@ get_header('custom');
             <img class="hero-poster"
                 src="<?php echo get_template_directory_uri(); ?>/assets/images/bold-low/Poster_Oct_13.webp"
                 alt="Natural Mixed Honey" width="auto" height="250" fetchpriority="high">
-            <a href="#order" class="cta-btn hero-first-view__cta">অর্ডার করতে চাই</a>
+            <a href="#dp-order-now" class="cta-btn hero-first-view__cta">অর্ডার করতে চাই</a>
         </div>
 
         <a class="call-notice call-notice--order" href="tel:8809648110184" aria-label="অর্ডার করতে কল করুন">
@@ -58,7 +58,7 @@ get_header('custom');
                 <span class="call-notice__phone">01811546841</span>
             </div>
         </a>
-        <a href="#order" class="cta-btn" style="background: #e44708;color: white;">অর্ডার করতে চাই</a><br><br>
+        <a href="#dp-order-now" class="cta-btn" style="background: #e44708;color: white;">অর্ডার করতে চাই</a><br><br>
         <div class="product-badge">NATURAL MIXED HONEY</div>
         <?php //include('video.php'); 
         ?>
@@ -151,7 +151,7 @@ get_header('custom');
                     <span>সম্পূর্ণ অরগানিক প্রোডাক্ট</span>
 
                 </div>
-                <a href="#order" class="cta-btn features-desktop-cta">অর্ডার করতে চাই</a>
+                <a href="#dp-order-now" class="cta-btn features-desktop-cta">অর্ডার করতে চাই</a>
 
             </div>
 
@@ -165,7 +165,7 @@ get_header('custom');
 
                 </div>
 
-                <a href="#order" class="cta-btn features-mobile-cta">অর্ডার করতে চাই</a>
+                <a href="#dp-order-now" class="cta-btn features-mobile-cta">অর্ডার করতে চাই</a>
 
             </div>
 
@@ -173,7 +173,7 @@ get_header('custom');
 
         <div class="text-center">
 
-            <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+            <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
 
         </div>
 
@@ -266,7 +266,7 @@ $bold_gallery_images = array(
         </div>
 
         <div class="bold-gallery__cta">
-            <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+            <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
         </div>
 
     </div>
@@ -366,7 +366,7 @@ $bold_gallery_images = array(
                     <li>৩ দিন সে-ব-নে রেজাল্ট পাবেন</li>
                     <li>বিফলে মূল্য ফেরত</li>
                 </ul>
-                <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+                <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
             </div>
             <div class="info-card"
                 style="background: linear-gradient(135deg, #2d5016 0%, #5a8f3a 100%); color: white;padding:10px;">
@@ -434,7 +434,7 @@ $bold_gallery_images = array(
 
 <!-- Order Form Section -->
 
-<section class="order-section" id="order">
+<section class="order-section" id="dp-order-now">
 
     <div class="container">
 

@@ -25,7 +25,7 @@
                 allowfullscreen></iframe>
         </div>
 
-        <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+        <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
     </div>
 </section>
 

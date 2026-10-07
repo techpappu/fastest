@@ -48,7 +48,7 @@ get_header('custom');
         <div class="product-image" style="background: #e44708; padding: 5px; border-radius: 10px;">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/royal-honey.webp" style="width:100%; height:auto;border-radius:5px;" alt="Royal Honey">
         </div>
-        <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+        <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
     </div>
 </section>
 
@@ -85,7 +85,7 @@ get_header('custom');
                 <div class="feature-item">
                     <span>সম্পূর্ণ অরগানিক প্রোডাক্ট</span>
                 </div>
-                <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+                <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
             </div>
             <div class="product-image-container">
                 <div class="product-image" style="background: #D4AF37; padding: 20px; border-radius: 10px;">
@@ -95,7 +95,7 @@ get_header('custom');
         </div>
 
         <div class="text-center">
-            <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+            <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
         </div>
     </div>
 
@@ -143,7 +143,7 @@ get_header('custom');
             <!-- YouTube Embed Video -->
             <iframe id="youtube-video" width="640" height="360" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+        <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
     </div>
 </section>
 
@@ -165,7 +165,7 @@ get_header('custom');
                     <li>৩ দিন সে-ব-নে রেজাল্ট পাবেন</li>
                     <li>বিফলে মূল্য ফেরত</li>
                 </ul>
-                <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+                <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
             </div>
             <div class="info-card" style="background: linear-gradient(135deg, #1e6c9d 0%, #41e198 100%); color: white;">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rayal-honey19.webp" alt="">
@@ -229,7 +229,7 @@ get_header('custom');
 
 <!-- Order Form Section -->
 
-<section class="order-section" id="order">
+<section class="order-section" id="dp-order-now">
     <div class="container">
         <?php the_content(); ?>
         <div class="logo" style="text-align:center;">অর্ডার করতে সরাসরি কল করুন <br> <a href="tel:8809648110184">8809648110184</a></div>

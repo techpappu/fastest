@@ -38,7 +38,7 @@ get_header('custom');
 <!-- Hero Section -->
 
 <!-- Order Form Section -->
-<section class="order-section" id="order">
+<section class="order-section" id="dp-order-now">
     <div class="container">
         <?php the_content(); ?>
         <div class="logo" style="text-align:center;">অর্ডার করতে সরাসরি কল করুন <br> <a href="tel:8809648110184">8809648110184</a></div>

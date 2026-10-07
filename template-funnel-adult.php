@@ -25,7 +25,7 @@ get_header('custom');
         <div class="product-image" style="background: #e44708; padding: 5px; border-radius: 10px;max-width:350px;">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/20953711a.gif" style="width:100%; height:auto;border-radius:5px;" alt="Royal Honey">
         </div>
-        <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+        <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
     </div>
 </section>
 
@@ -64,7 +64,7 @@ get_header('custom');
                 <div class="feature-item">
                     <span>সম্পূর্ণ অরগানিক প্রোডাক্ট</span>
                 </div>
-                <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+                <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
             </div>
 
             <div class="product-image-container">
@@ -74,7 +74,7 @@ get_header('custom');
             </div>
         </div>
         <div class="text-center">
-            <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+            <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
         </div>
     </div>
 </section>
@@ -121,7 +121,7 @@ get_header('custom');
             <!-- YouTube Embed Video -->
             <iframe id="youtube-video" width="640" height="360" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+        <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
     </div>
 </section>
 
@@ -151,7 +151,7 @@ get_header('custom');
                     <li>বিফলে মূল্য ফেরত</li>
 
                 </ul>
-                <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+                <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
 
             </div>
 
@@ -245,7 +245,7 @@ get_header('custom');
 
 <!-- Order Form Section -->
 
-<section class="order-section" id="order">
+<section class="order-section" id="dp-order-now">
 
     <div class="container">
 

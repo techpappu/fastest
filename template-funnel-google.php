@@ -19,7 +19,7 @@ get_header('custom');
 <section class="hero">
     <div class="hero-content">
         <div class="logo"><a href="tel:8809648110184">8809648110184</a></div>
-        <a href="#order" class="cta-btn" style="background: #e44708;color: white;">অর্ডার করতে চাই</a><br><br>
+        <a href="#dp-order-now" class="cta-btn" style="background: #e44708;color: white;">অর্ডার করতে চাই</a><br><br>
         <div class="product-badge">NATURAL MIXED HONEY</div>
         <h1 class="hero-title" style="margin: 0;">ন্যাচারাল মিক্সড মধু</h1>
         <div class="product-image" style="background: #e44708; padding: 5px; border-radius: 10px; max-width:350px;">
@@ -38,7 +38,7 @@ get_header('custom');
             <?php endif; ?>
 
         </div>
-        <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+        <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
     </div>
 </section>
 
@@ -47,7 +47,7 @@ get_header('custom');
 
 <!-- Order Form Section -->
 
-<section class="order-section" id="order">
+<section class="order-section" id="dp-order-now">
     <style>
         .product-decription {
             background: #eee;

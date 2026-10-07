@@ -26,7 +26,7 @@ get_header('custom');
 
   <!-- Order Form Section -->
 
-   <section class="order-section" id="order">
+   <section class="order-section" id="dp-order-now">
 
       <div class="container">
 

@@ -28,7 +28,7 @@ get_header('custom');
                 <span class="call-notice__phone">01811546841</span>
             </div>
         </a>
-        <a href="#order" class="cta-btn" style="background: #e44708;color: white;">অর্ডার করতে চাই</a><br><br>
+        <a href="#dp-order-now" class="cta-btn" style="background: #e44708;color: white;">অর্ডার করতে চাই</a><br><br>
         <div class="product-badge">NATURAL MIXED HONEY</div>
         <?php //include('video.php'); 
         ?>
@@ -99,7 +99,7 @@ get_header('custom');
                     <span>সম্পূর্ণ অরগানিক প্রোডাক্ট</span>
 
                 </div>
-                <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+                <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
 
             </div>
 
@@ -118,7 +118,7 @@ get_header('custom');
 
         <div class="text-center">
 
-            <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+            <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
 
         </div>
 
@@ -186,7 +186,7 @@ get_header('custom');
                     <li>৩ দিন সে-ব-নে রেজাল্ট পাবেন</li>
                     <li>বিফলে মূল্য ফেরত</li>
                 </ul>
-                <a href="#order" class="cta-btn">অর্ডার করতে চাই</a>
+                <a href="#dp-order-now" class="cta-btn">অর্ডার করতে চাই</a>
             </div>
             <div class="info-card" style="background: linear-gradient(135deg, #2d5016 0%, #5a8f3a 100%); color: white;">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/imgi_3_poster-9b-s.webp" alt="">
@@ -253,7 +253,7 @@ get_header('custom');
 
 <!-- Order Form Section -->
 
-<section class="order-section" id="order">
+<section class="order-section" id="dp-order-now">
 
     <div class="container">
 
