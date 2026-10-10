@@ -45,7 +45,7 @@ get_header('custom');
         </style>
         <div class="hero-first-view">
             <img class="hero-poster"
-                src="<?php echo get_template_directory_uri(); ?>/assets/images/bold-low/Poster_Oct_13.webp"
+                src="<?php echo get_template_directory_uri(); ?>/assets/images/bold-low/Poster-07.webp"
                 alt="Natural Mixed Honey" width="auto" height="250" fetchpriority="high">
             <a href="#dp-order-now" class="cta-btn hero-first-view__cta">অর্ডার করতে চাই</a>
         </div>
@@ -189,10 +189,10 @@ get_header('custom');
 $bold_gallery_images = array(
     'Poster-02.webp',
     'Poster-22.webp',
+    'Poster-07.webp',
     'Poster-06.webp',
     'Poster-14.webp',
     'Poster-09.webp',
-    'Poster-20.webp',
 );
 ?>
 <style>
@@ -370,7 +370,8 @@ $bold_gallery_images = array(
             </div>
             <div class="info-card"
                 style="background: linear-gradient(135deg, #2d5016 0%, #5a8f3a 100%); color: white;padding:10px;">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bold-low/Poster_Sep_11.webp" alt="" loading="lazy" decoding="async">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bold-low/Poster_Sep_11.webp" alt=""
+                    loading="lazy" decoding="async">
             </div>
         </div>
     </div>
