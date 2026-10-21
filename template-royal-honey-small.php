@@ -41,7 +41,8 @@ get_header('custom');
 <section class="order-section" id="dp-order-now">
     <div class="container">
         <?php the_content(); ?>
-        <div class="logo" style="text-align:center;">অর্ডার করতে সরাসরি কল করুন <br> <a href="tel:8809648110184">8809648110184</a></div>
+        <div class="logo" style="text-align:center;">অর্ডার করতে সরাসরি কল করুন <br> <a
+                href="tel:8809648110184">8809648110184</a></div>
     </div>
 </section>
 <!-- Footer -->
