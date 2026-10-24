@@ -32,17 +32,17 @@
          </marquee>
       </div>
    </section> -->
-   <!-- <div>
-      <a href="tel:+8809648110184" class="sticky-call">
+   <div>
+      <a href="tel:01811546841" class="sticky-call">
          📞 ফোন করুন
       </a>
-   </div> -->
-   <div class="sticky-bottom-call-bar">
+   </div>
+   <!-- <div class="sticky-bottom-call-bar">
       <a href="tel:+8809648110184" class="sticky-bottom-call-bar__button">
          <span aria-hidden="true">☎</span>
          কল করে অর্ডার করুন: 01811546841
       </a>
-   </div>
+   </div> -->
    <style>
       .sticky-call {
          position: fixed;
