@@ -118,6 +118,7 @@ get_header('custom');
       padding-top: 8px;
       border-top: 1px solid rgba(255, 215, 0, 0.2);
    }
+
    .offer-banner__price {
       display: inline-block;
       background: #FFD700;
@@ -129,9 +130,9 @@ get_header('custom');
       margin: 0 3px;
    }
 
-   .big-pack-note {
+   /* .big-pack-note {
       display: none !important;
-   }
+   } */
 </style>
 
 <!-- Hero Section -->
@@ -144,14 +145,14 @@ get_header('custom');
       <h1 class="hero-title">ন্যাচারাল মিক্সড মধু</h1>
 
       <!-- Offer Banner -->
-      <div class="offer-banner">
+      <!-- <div class="offer-banner">
          <div class="offer-banner__inner">
             <p class="offer-banner__line1">🔥 প্রোডাক্টের দাম <span class="offer-banner__old-price">৯৯৯/- টাকা</span>
             </p>
             <p class="offer-banner__line2">কিন্তু আপনি পাচ্ছেন <span class="offer-banner__free">একদম ফ্রি!</span></p>
             <p class="offer-banner__line3">শুধুমাত্র <span class="offer-banner__price">২৯৯/- টাকা</span> ডেলিভারি ও প্যাকেজিং চার্জ দিয়ে প্রোডাক্টটি রিসিভ করবেন</p>
          </div>
-      </div>
+      </div> -->
 
    </div>
 
