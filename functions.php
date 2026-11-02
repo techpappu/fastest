@@ -8,7 +8,7 @@
  * @package fastest_theme
  */
 
-if (! defined('_S_VERSION')) {
+if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
 	define('_S_VERSION', '1.1.1');
 }
@@ -23,29 +23,29 @@ if (! defined('_S_VERSION')) {
 function fastest_setup()
 {
 	/*
-		* Make theme available for translation.
-		* Translations can be filed in the /languages/ directory.
-		* If you're building a theme based on fastest theme, use a find and replace
-		* to change 'fastest' to the name of your theme in all the template files.
-		*/
+	 * Make theme available for translation.
+	 * Translations can be filed in the /languages/ directory.
+	 * If you're building a theme based on fastest theme, use a find and replace
+	 * to change 'fastest' to the name of your theme in all the template files.
+	 */
 	load_theme_textdomain('fastest', get_template_directory() . '/languages');
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support('automatic-feed-links');
 
 	/*
-		* Let WordPress manage the document title.
-		* By adding theme support, we declare that this theme does not use a
-		* hard-coded <title> tag in the document head, and expect WordPress to
-		* provide it for us.
-		*/
+	 * Let WordPress manage the document title.
+	 * By adding theme support, we declare that this theme does not use a
+	 * hard-coded <title> tag in the document head, and expect WordPress to
+	 * provide it for us.
+	 */
 	add_theme_support('title-tag');
 
 	/*
-		* Enable support for Post Thumbnails on posts and pages.
-		*
-		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		*/
+	 * Enable support for Post Thumbnails on posts and pages.
+	 *
+	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+	 */
 	add_theme_support('post-thumbnails');
 
 	// This theme uses wp_nav_menu() in one location.
@@ -56,9 +56,9 @@ function fastest_setup()
 	);
 
 	/*
-		* Switch default core markup for search form, comment form, and comments
-		* to output valid HTML5.
-		*/
+	 * Switch default core markup for search form, comment form, and comments
+	 * to output valid HTML5.
+	 */
 	add_theme_support(
 		'html5',
 		array(
@@ -95,9 +95,9 @@ function fastest_setup()
 	add_theme_support(
 		'custom-logo',
 		array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
+			'height' => 250,
+			'width' => 250,
+			'flex-width' => true,
 			'flex-height' => true,
 		)
 	);
@@ -126,13 +126,13 @@ function fastest_widgets_init()
 {
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Sidebar', 'fastest'),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__('Add widgets here.', 'fastest'),
+			'name' => esc_html__('Sidebar', 'fastest'),
+			'id' => 'sidebar-1',
+			'description' => esc_html__('Add widgets here.', 'fastest'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'after_widget' => '</section>',
+			'before_title' => '<h2 class="widget-title">',
+			'after_title' => '</h2>',
 		)
 	);
 }
@@ -217,21 +217,21 @@ add_filter('woocommerce_checkout_fields', function ($fields) {
 
 
 	/* Name field */
-	$fields['billing']['billing_first_name']['label']       = 'নাম';
+	$fields['billing']['billing_first_name']['label'] = 'নাম';
 	$fields['billing']['billing_first_name']['placeholder'] = 'আপনার নাম লিখুন';
-	$fields['billing']['billing_first_name']['priority']    = 10;
+	$fields['billing']['billing_first_name']['priority'] = 10;
 
 	/* Phone field */
-	$fields['billing']['billing_phone']['label']       = 'মোবাইল নাম্বার';
+	$fields['billing']['billing_phone']['label'] = 'মোবাইল নাম্বার';
 	$fields['billing']['billing_phone']['placeholder'] = '+880 01xxx-xxxxxx';
-	$fields['billing']['billing_phone']['required']    = true;
-	$fields['billing']['billing_phone']['priority']    = 20;
+	$fields['billing']['billing_phone']['required'] = true;
+	$fields['billing']['billing_phone']['priority'] = 20;
 
 	/* Address field */
-	$fields['billing']['billing_address_1']['label']       = 'ঠিকানা';
+	$fields['billing']['billing_address_1']['label'] = 'ঠিকানা';
 	$fields['billing']['billing_address_1']['placeholder'] = 'থানা: রামপুর, জেলা: ঢাকা';
 	//$fields['billing']['billing_address_1']['placeholder'] = 'ঈদের ৬–৭ দিনের পর ডেলিভারি করা হবে। সঠিক ঠিকানা লিখুন।';
-	$fields['billing']['billing_address_1']['priority']    = 30;
+	$fields['billing']['billing_address_1']['priority'] = 30;
 
 	return $fields;
 });
@@ -285,10 +285,10 @@ function wc_product_image_by_id($product_id, $size = 'woocommerce_thumbnail', $c
 			$size,
 			false,
 			array(
-				'class'    => trim('wc-product-image ' . $class),
-				'loading'  => 'lazy',
+				'class' => trim('wc-product-image ' . $class),
+				'loading' => 'lazy',
 				'decoding' => 'async',
-				'alt'      => esc_attr($product->get_name()),
+				'alt' => esc_attr($product->get_name()),
 			)
 		);
 	} else {
@@ -300,15 +300,16 @@ function wc_product_image_by_id($product_id, $size = 'woocommerce_thumbnail', $c
 function wc_product_price_html_by_id($product_id)
 {
 	$product = wc_get_product($product_id);
-	if (!$product) return '';
+	if (!$product)
+		return '';
 
 	$regular = $product->get_regular_price();
-	$sale    = $product->get_sale_price();
+	$sale = $product->get_sale_price();
 	$current = $product->get_price();
 
 	// Format prices with WooCommerce
 	$regular_formatted = $regular ? wc_price($regular) : '';
-	$sale_formatted    = $sale ? wc_price($sale) : '';
+	$sale_formatted = $sale ? wc_price($sale) : '';
 	$current_formatted = $current ? wc_price($current) : '';
 
 	// Build HTML
@@ -359,24 +360,28 @@ add_action('init', function () {
 //cartflow custom checkout shortcode
 add_shortcode('cartflow-custom', function ($atts) {
 
-	if (!class_exists('WooCommerce')) return '';
+	if (!class_exists('WooCommerce'))
+		return '';
 
 	$atts = shortcode_atts([
 		'default-product' => '',
-		'ids'             => '',
+		'ids' => '',
 	], $atts);
 
-	$default_id  = absint($atts['default-product']);
+	$default_id = absint($atts['default-product']);
 	$product_ids = array_filter(array_map('absint', explode(',', $atts['ids'])));
 
-	if (!$default_id || empty($product_ids)) return '';
+	if (!$default_id || empty($product_ids))
+		return '';
 
 
-?>
+	?>
 	<div class="order-form" data-default="<?php echo esc_attr($default_id); ?>">
 
 		<h2 class="form-title">আপনার পছন্দের প্যাকেজটি সিলেক্ট করুন</h2>
-		<p style="display:flex;align-items:center;justify-content:center;gap:8px;margin:0 10px 14px;padding:10px 14px;color:#7a2413;background:#fff5e5;border:1px solid #f2c46d;border-left:4px solid #D4AF37;border-radius:8px;box-shadow:0 6px 18px rgba(196,30,58,0.08);font-weight:400;font-size:10px;line-height:1.5;text-align:center;" role="alert">
+		<p class="big-pack-note"
+			style="display:flex;align-items:center;justify-content:center;gap:8px;margin:0 10px 14px;padding:10px 14px;color:#7a2413;background:#fff5e5;border:1px solid #f2c46d;border-left:4px solid #D4AF37;border-radius:8px;box-shadow:0 6px 18px rgba(196,30,58,0.08);font-weight:400;font-size:10px;line-height:1.5;text-align:center;"
+			role="alert">
 			<span aria-hidden="true">🔥</span>
 			<span>বেশি সাশ্রয় ও দীর্ঘমেয়াদী ব্যবহারের জন্য বড় প্যাকেজ বেছে নিন</span>
 		</p>
@@ -387,8 +392,9 @@ add_shortcode('cartflow-custom', function ($atts) {
 				<?php foreach ($product_ids as $pid):
 					$product = wc_get_product($pid);
 					$slogan = $product->get_meta('_product_slogan');
-					if (!$product) continue;
-				?>
+					if (!$product)
+						continue;
+					?>
 					<label>
 						<input type="radio" name="checkout_product" value="<?php echo esc_attr($pid); ?>" <?php checked($pid, $default_id); ?>>
 						<div>
@@ -409,11 +415,11 @@ add_shortcode('cartflow-custom', function ($atts) {
 
 			</div>
 			<?php //include get_template_directory() . '/delivery-notice.php'; 
-			?>
+				?>
 			<?php echo do_shortcode('[woocommerce_checkout]'); ?>
 		</div>
 	</div>
-<?php
+	<?php
 });
 
 add_action('wp', function () {
@@ -463,11 +469,11 @@ add_filter('woocommerce_is_checkout', function ($is_checkout) {
 add_action('woocommerce_before_thankyou', 'thankyou_video_with_sound_button', 5);
 function thankyou_video_with_sound_button($order_id)
 {
-?>
+	?>
 
 
 	<?php //include get_template_directory() . '/delivery-notice-thankyou.php'; 
-	?>
+		?>
 	<br>
 	<!-- Video Thumbnail (Image) Section -->
 	<!-- <div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
@@ -477,14 +483,9 @@ function thankyou_video_with_sound_button($order_id)
 		</div>
 	</div> -->
 	<div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
-		<iframe
-			id="youtube-video"
-			width="100%"
-			height="360"
+		<iframe id="youtube-video" width="100%" height="360"
 			src="https://www.youtube.com/embed/uD6D2nx5BhA?autoplay=1&mute=1&playsinline=1&rel=0&controls=0&disablekb=1&fs=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&hl=en&loop=1&color=white&enablejsapi=1"
-			frameborder="0"
-			allow="autoplay; encrypted-media; picture-in-picture"
-			allowfullscreen>
+			frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
 		</iframe>
 	</div>
 	<script src="https://www.youtube.com/iframe_api"></script>
@@ -512,9 +513,10 @@ function thankyou_video_with_sound_button($order_id)
 	<div id="video-modal" class="video-modal">
 		<span class="close-modal">&times;</span>
 		<!-- YouTube Embed Video -->
-		<iframe id="youtube-video" width="640" height="360" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe id="youtube-video" width="640" height="360" frameborder="0"
+			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
-<?php
+	<?php
 }
 
 add_action('woocommerce_product_options_general_product_data', 'add_product_slogan_field');
