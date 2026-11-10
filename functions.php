@@ -10,7 +10,7 @@
 
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define('_S_VERSION', '1.1.1');
+	define('_S_VERSION', '1.1.2');
 }
 
 /**
@@ -198,11 +198,11 @@ add_filter('woocommerce_checkout_fields', function ($fields) {
 		'billing_phone',
 	);
 
-	foreach ($fields['billing'] as $key => $field) {
-		if (!in_array($key, $allowed)) {
-			unset($fields['billing'][$key]);
-		}
-	}
+	// foreach ($fields['billing'] as $key => $field) {
+	// 	if (!in_array($key, $allowed)) {
+	// 		unset($fields['billing'][$key]);
+	// 	}
+	// }
 
 	// ===== Remove all shipping fields =====
 	unset($fields['shipping']);

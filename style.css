@@ -1040,6 +1040,7 @@ h3#ship-to-different-address {
 	left: 17px;
 	background: white;
 	padding: 2px;
+	z-index: 10;
 }
 
 /* Hide required asterisk */
@@ -1075,6 +1076,62 @@ h3#ship-to-different-address {
 .form-row textarea::placeholder {
 	color: #999;
 	font-size: 14px;
+}
+
+/* Select2 Dropdown Styling (District / Thana plugin) */
+.form-row .select2-container .select2-selection--single {
+	height: auto;
+	padding: 12px 16px;
+	font-size: 16px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	background: #fff;
+	transition: border-color 0.3s;
+}
+
+.form-row .select2-container--open .select2-selection--single {
+	border-color: #FF8C00;
+}
+
+.form-row .select2-container .select2-selection--single .select2-selection__rendered {
+	padding: 0;
+	line-height: normal;
+	color: #333;
+	font-size: 16px;
+}
+
+.form-row .select2-container .select2-selection--single .select2-selection__arrow {
+	height: 100%;
+	right: 10px;
+	top: 0;
+}
+
+.form-row .select2-container .select2-selection--single .select2-selection__placeholder {
+	color: #999;
+	font-size: 14px;
+}
+
+.form-row .select2-container {
+	width: 100% !important;
+}
+
+/* Select2 Dropdown Panel */
+.select2-container--default .select2-results__option--highlighted[aria-selected],
+.select2-container--default .select2-results__option--highlighted[data-selected] {
+	background-color: #FF8C00;
+	color: #fff;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+	padding: 10px 12px;
+	font-size: 14px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field:focus {
+	outline: none;
+	border-color: #FF8C00;
 }
 
 /* Order Review Section */
