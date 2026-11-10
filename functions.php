@@ -233,6 +233,9 @@ add_filter('woocommerce_checkout_fields', function ($fields) {
 	//$fields['billing']['billing_address_1']['placeholder'] = 'ঈদের ৬–৭ দিনের পর ডেলিভারি করা হবে। সঠিক ঠিকানা লিখুন।';
 	$fields['billing']['billing_address_1']['priority'] = 30;
 
+	/* Force country to Bangladesh */
+	$fields['billing']['billing_country']['default'] = 'BD';
+
 	return $fields;
 });
 
@@ -557,27 +560,61 @@ include get_template_directory() . '/google-template-functions.php';
 require_once get_template_directory() . '/inc/facebook-review-image-selector.php';
 
 /**
- * Fix: Display Bangladesh district name instead of state code (BD-XX) in orders.
- * Resolves issue where WooCommerce shows raw state codes in order details.
+ * Bangladesh districts: save the district NAME (e.g. "Rangamati") instead of the
+ * state code (e.g. "BD-56"), so orders and courier/Ecom integrations get the real name.
+ *
+ * The location-dropdown plugin registers districts as BD-XX => Name. We re-key them
+ * as Name => Name (priority 20, after the plugin), so checkout validation, order meta
+ * and the admin order edit screen all use the name directly.
  */
+function fastest_bd_district_code_map() {
+	static $map = null;
+	if (null === $map) {
+		$plugin_states = function_exists('tbld_register_bd_district_states') ? tbld_register_bd_district_states(array()) : array();
+		$map = $plugin_states['BD'] ?? array();
+	}
+	return $map;
+}
+
+add_filter('woocommerce_states', 'fastest_bd_states_use_names', 20);
+function fastest_bd_states_use_names($states) {
+	if (!empty($states['BD'])) {
+		$names = array_values($states['BD']);
+		$states['BD'] = array_combine($names, $names);
+	}
+	return $states;
+}
+
+/* Safety net: if a BD-XX code still arrives (cached checkout page etc.), convert it before saving. */
+add_action('woocommerce_checkout_create_order', 'fastest_bd_state_code_to_name', 10, 1);
+function fastest_bd_state_code_to_name($order) {
+	$map = fastest_bd_district_code_map();
+	$billing = $order->get_billing_state('edit');
+	if (isset($map[$billing])) {
+		$order->set_billing_state($map[$billing]);
+	}
+	$shipping = $order->get_shipping_state('edit');
+	if (isset($map[$shipping])) {
+		$order->set_shipping_state($map[$shipping]);
+	}
+}
+
+/* Old orders already saved with a BD-XX code: display the district name. */
 add_filter('woocommerce_formatted_address_replacements', 'fastest_fix_bd_state_display', 10, 2);
 function fastest_fix_bd_state_display($replacements, $args) {
-	if (!empty($args['state']) && strpos($args['state'], 'BD-') === 0) {
-		$states = WC()->countries->get_states($args['country'] ?? 'BD');
-		if (!empty($states[$args['state']])) {
-			$replacements['{state}'] = $states[$args['state']];
-		}
+	$map = fastest_bd_district_code_map();
+	if (!empty($args['state']) && isset($map[$args['state']])) {
+		$replacements['{state}'] = $map[$args['state']];
 	}
 	return $replacements;
 }
 
-add_filter('woocommerce_order_formatted_billing_address', 'fastest_fix_bd_billing_state', 10, 2);
-function fastest_fix_bd_billing_state($address, $order) {
-	if (!empty($address['state']) && strpos($address['state'], 'BD-') === 0) {
-		$states = WC()->countries->get_states($address['country'] ?? 'BD');
-		if (!empty($states[$address['state']])) {
-			$address['state'] = $states[$address['state']];
-		}
+add_filter('woocommerce_order_formatted_billing_address', 'fastest_fix_bd_order_state', 10, 2);
+add_filter('woocommerce_order_formatted_shipping_address', 'fastest_fix_bd_order_state', 10, 2);
+function fastest_fix_bd_order_state($address, $order) {
+	$map = fastest_bd_district_code_map();
+	if (!empty($address['state']) && isset($map[$address['state']])) {
+		$address['state'] = $map[$address['state']];
 	}
 	return $address;
 }
