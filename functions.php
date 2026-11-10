@@ -555,3 +555,29 @@ add_filter('woocommerce_order_number', function ($order_number, $order) {
 }, 10, 2);
 include get_template_directory() . '/google-template-functions.php';
 require_once get_template_directory() . '/inc/facebook-review-image-selector.php';
+
+/**
+ * Fix: Display Bangladesh district name instead of state code (BD-XX) in orders.
+ * Resolves issue where WooCommerce shows raw state codes in order details.
+ */
+add_filter('woocommerce_formatted_address_replacements', 'fastest_fix_bd_state_display', 10, 2);
+function fastest_fix_bd_state_display($replacements, $args) {
+	if (!empty($args['state']) && strpos($args['state'], 'BD-') === 0) {
+		$states = WC()->countries->get_states($args['country'] ?? 'BD');
+		if (!empty($states[$args['state']])) {
+			$replacements['{state}'] = $states[$args['state']];
+		}
+	}
+	return $replacements;
+}
+
+add_filter('woocommerce_order_formatted_billing_address', 'fastest_fix_bd_billing_state', 10, 2);
+function fastest_fix_bd_billing_state($address, $order) {
+	if (!empty($address['state']) && strpos($address['state'], 'BD-') === 0) {
+		$states = WC()->countries->get_states($address['country'] ?? 'BD');
+		if (!empty($states[$address['state']])) {
+			$address['state'] = $states[$address['state']];
+		}
+	}
+	return $address;
+}
