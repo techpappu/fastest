@@ -1078,6 +1078,15 @@ h3#ship-to-different-address {
 	font-size: 14px;
 }
 
+/* Address field helper text */
+#billing_address_1_field .description {
+	display: block;
+	margin-top: 6px;
+	font-size: 12px;
+	color: #e67e22;
+	font-weight: 500;
+}
+
 /* Select2 Dropdown Styling (District / Thana plugin) */
 .form-row .select2-container .select2-selection--single {
 	height: auto;
@@ -1124,7 +1133,7 @@ h3#ship-to-different-address {
 
 .select2-container--default .select2-search--dropdown .select2-search__field {
 	padding: 10px 12px;
-	font-size: 14px;
+	font-size: 16px;
 	border: 1px solid #ddd;
 	border-radius: 4px;
 }

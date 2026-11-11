@@ -10,7 +10,7 @@
 
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define('_S_VERSION', '1.1.2');
+	define('_S_VERSION', '1.1.3');
 }
 
 /**
@@ -229,8 +229,8 @@ add_filter('woocommerce_checkout_fields', function ($fields) {
 
 	/* Address field */
 	$fields['billing']['billing_address_1']['label'] = 'ঠিকানা';
-	$fields['billing']['billing_address_1']['placeholder'] = 'থানা: রামপুর, জেলা: ঢাকা';
-	//$fields['billing']['billing_address_1']['placeholder'] = 'ঈদের ৬–৭ দিনের পর ডেলিভারি করা হবে। সঠিক ঠিকানা লিখুন।';
+	$fields['billing']['billing_address_1']['placeholder'] = 'বাড়ি/হোল্ডিং নং, রোড নং, গ্রাম/মহল্লা, নিকটস্থ পরিচিত স্থান';
+	$fields['billing']['billing_address_1']['description'] = 'জেলা ও থানা আবার লেখার প্রয়োজন নেই।';
 	$fields['billing']['billing_address_1']['priority'] = 30;
 
 	/* Force country to Bangladesh */
@@ -567,7 +567,8 @@ require_once get_template_directory() . '/inc/facebook-review-image-selector.php
  * as Name => Name (priority 20, after the plugin), so checkout validation, order meta
  * and the admin order edit screen all use the name directly.
  */
-function fastest_bd_district_code_map() {
+function fastest_bd_district_code_map()
+{
 	static $map = null;
 	if (null === $map) {
 		$plugin_states = function_exists('tbld_register_bd_district_states') ? tbld_register_bd_district_states(array()) : array();
@@ -577,7 +578,8 @@ function fastest_bd_district_code_map() {
 }
 
 add_filter('woocommerce_states', 'fastest_bd_states_use_names', 20);
-function fastest_bd_states_use_names($states) {
+function fastest_bd_states_use_names($states)
+{
 	if (!empty($states['BD'])) {
 		$names = array_values($states['BD']);
 		$states['BD'] = array_combine($names, $names);
@@ -587,7 +589,8 @@ function fastest_bd_states_use_names($states) {
 
 /* Safety net: if a BD-XX code still arrives (cached checkout page etc.), convert it before saving. */
 add_action('woocommerce_checkout_create_order', 'fastest_bd_state_code_to_name', 10, 1);
-function fastest_bd_state_code_to_name($order) {
+function fastest_bd_state_code_to_name($order)
+{
 	$map = fastest_bd_district_code_map();
 	$billing = $order->get_billing_state('edit');
 	if (isset($map[$billing])) {
@@ -601,7 +604,8 @@ function fastest_bd_state_code_to_name($order) {
 
 /* Old orders already saved with a BD-XX code: display the district name. */
 add_filter('woocommerce_formatted_address_replacements', 'fastest_fix_bd_state_display', 10, 2);
-function fastest_fix_bd_state_display($replacements, $args) {
+function fastest_fix_bd_state_display($replacements, $args)
+{
 	$map = fastest_bd_district_code_map();
 	if (!empty($args['state']) && isset($map[$args['state']])) {
 		$replacements['{state}'] = $map[$args['state']];
@@ -611,7 +615,8 @@ function fastest_fix_bd_state_display($replacements, $args) {
 
 add_filter('woocommerce_order_formatted_billing_address', 'fastest_fix_bd_order_state', 10, 2);
 add_filter('woocommerce_order_formatted_shipping_address', 'fastest_fix_bd_order_state', 10, 2);
-function fastest_fix_bd_order_state($address, $order) {
+function fastest_fix_bd_order_state($address, $order)
+{
 	$map = fastest_bd_district_code_map();
 	if (!empty($address['state']) && isset($map[$address['state']])) {
 		$address['state'] = $map[$address['state']];
