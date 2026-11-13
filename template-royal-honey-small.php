@@ -48,7 +48,6 @@ get_header('custom');
             </div>
         </a>
         <a href="#dp-order-now" class="cta-btn" style="background: #e44708;color: white;">অর্ডার করতে চাই</a><br><br>
-        <div class="product-badge">NATURAL MIXED HONEY</div>
         <?php //include('video.php'); 
         ?>
     </div>
