@@ -36,13 +36,36 @@ get_header('custom');
 </style>
 
 <!-- Hero Section -->
+<section class="hero">
+
+    <div class="hero-content">
+        <a class="call-notice call-notice--order" href="tel:8809648110184" aria-label="অর্ডার করতে কল করুন">
+            <span class="call-notice__icon" aria-hidden="true">☎</span>
+            <div>
+                <strong>অর্ডার করতে সরাসরি কল করুন</strong>
+                <p>মিনিট দিয়েই কল করুন। সাধারণ কল চার্জ প্রযোজ্য।</p>
+                <span class="call-notice__phone">01811546841</span>
+            </div>
+        </a>
+        <a href="#dp-order-now" class="cta-btn" style="background: #e44708;color: white;">অর্ডার করতে চাই</a><br><br>
+        <div class="product-badge">NATURAL MIXED HONEY</div>
+        <?php //include('video.php'); 
+        ?>
+    </div>
+</section>
 
 <!-- Order Form Section -->
 <section class="order-section" id="dp-order-now">
     <div class="container">
         <?php the_content(); ?>
-        <div class="logo" style="text-align:center;">অর্ডার করতে সরাসরি কল করুন <br> <a
-                href="tel:8809648110184">8809648110184</a></div>
+        <a class="call-notice call-notice--order" href="tel:8809648110184" aria-label="অর্ডার করতে কল করুন">
+            <span class="call-notice__icon" aria-hidden="true">☎</span>
+            <div>
+                <strong>অর্ডার করতে সরাসরি কল করুন</strong>
+                <p>মিনিট দিয়েই কল করুন। সাধারণ কল চার্জ প্রযোজ্য।</p>
+                <span class="call-notice__phone">01811546841</span>
+            </div>
+        </a>
     </div>
 </section>
 <!-- Footer -->
