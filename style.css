@@ -1261,6 +1261,17 @@ h3#ship-to-different-address {
 	height: 100px;
 	width: 100px;
 }
+.woocommerce-checkout .entry-content{
+    background:#2A375F;
+    padding:30px 20px;
+}
+.woocommerce-checkout .entry-content .woocommerce{
+    max-width: 500px;
+    margin:0 auto;
+    background:#ffffff;
+    padding:10px;
+    border-radius:10px;
+}
 
 .checkout-product-selector input:checked+span {
 	font-weight: 600;
