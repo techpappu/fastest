@@ -462,6 +462,48 @@ add_action('wp', function () {
 	WC()->cart->add_to_cart($default_product_id, 1);
 });
 
+/**
+ * Never cache pages that contain [cartflow-custom] (cart/checkout are per-visitor).
+ * Same effect as LiteSpeed's "Disable Cache" toggle, but automatic.
+ */
+function fastest_has_cartflow_shortcode($post)
+{
+	return $post instanceof WP_Post && has_shortcode($post->post_content, 'cartflow-custom');
+}
+
+// 1) Runtime: tell LiteSpeed (and other cache plugins) not to cache this response.
+add_action('wp', function () {
+	if (is_admin() || !is_singular() || !fastest_has_cartflow_shortcode(get_queried_object())) {
+		return;
+	}
+
+	do_action('litespeed_control_set_nocache', 'cartflow-custom shortcode page');
+
+	if (!defined('DONOTCACHEPAGE')) {
+		define('DONOTCACHEPAGE', true);
+	}
+	nocache_headers();
+}, 1);
+
+// 2) On save: switch on LiteSpeed's "Disable Cache" toggle (meta litespeed_no_cache)
+//    and purge any copy already cached. Priority 99 so it runs after LiteSpeed's own
+//    metabox save, which would otherwise reset the toggle to off.
+add_action('save_post', function ($post_id, $post) {
+	if (wp_is_post_revision($post_id) || wp_is_post_autosave($post_id)) {
+		return;
+	}
+
+	if (fastest_has_cartflow_shortcode($post)) {
+		update_post_meta($post_id, 'litespeed_no_cache', 1);
+		update_post_meta($post_id, '_fastest_auto_no_cache', 1);
+		do_action('litespeed_purge_post', $post_id);
+	} elseif (get_post_meta($post_id, '_fastest_auto_no_cache', true)) {
+		// Shortcode removed: undo only what we turned on automatically.
+		delete_post_meta($post_id, 'litespeed_no_cache');
+		delete_post_meta($post_id, '_fastest_auto_no_cache');
+	}
+}, 99, 2);
+
 add_filter('woocommerce_is_checkout', function ($is_checkout) {
 	return true;
 });
