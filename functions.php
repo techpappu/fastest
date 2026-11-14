@@ -10,7 +10,7 @@
 
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define('_S_VERSION', '1.1.2');
+	define('_S_VERSION', '1.1.6');
 }
 
 /**
@@ -464,6 +464,32 @@ add_action('wp', function () {
 
 add_filter('woocommerce_is_checkout', function ($is_checkout) {
 	return true;
+});
+
+/**
+ * Because woocommerce_is_checkout is forced to true above, WooCommerce adds the
+ * "woocommerce-checkout" body class to EVERY page (cart, etc.). Use this class instead
+ * to style only real checkout pages: the WooCommerce checkout page (incl. thank-you)
+ * and any page containing [woocommerce_checkout] or [cartflow-custom].
+ */
+add_filter('body_class', function ($classes) {
+	if (!function_exists('wc_get_page_id')) {
+		return $classes;
+	}
+
+	$post = get_queried_object();
+
+	$is_checkout_page = is_page(wc_get_page_id('checkout'))
+		|| ($post instanceof WP_Post && (
+			has_shortcode($post->post_content, 'woocommerce_checkout')
+			|| has_shortcode($post->post_content, 'cartflow-custom')
+		));
+
+	if ($is_checkout_page) {
+		$classes[] = 'fastest-checkout';
+	}
+
+	return $classes;
 });
 
 add_action('woocommerce_before_thankyou', 'thankyou_video_with_sound_button', 5);
