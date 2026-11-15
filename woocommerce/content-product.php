@@ -20,7 +20,8 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 	return;
 }
 
-$fastest_permalink = apply_filters( 'woocommerce_loop_product_link', get_the_permalink(), $product );
+// Image + title link to the same place as the buy-now button (checkout), not the single product page.
+$fastest_permalink = fastest_woocommerce_loop_card_link( $product );
 ?>
 <li <?php wc_product_class( 'fastest-card', $product ); ?>>
 	<?php
@@ -32,7 +33,7 @@ $fastest_permalink = apply_filters( 'woocommerce_loop_product_link', get_the_per
 	?>
 
 	<div class="fastest-card__media">
-		<a href="<?php echo esc_url( $fastest_permalink ); ?>" class="fastest-card__image-link" tabindex="-1" aria-hidden="true">
+		<a href="<?php echo esc_url( $fastest_permalink ); ?>" class="fastest-card__image-link" rel="nofollow" tabindex="-1" aria-hidden="true">
 			<?php
 			/**
 			 * Hook: woocommerce_before_shop_loop_item_title.

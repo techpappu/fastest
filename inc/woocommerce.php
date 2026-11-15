@@ -128,15 +128,30 @@ if ( ! function_exists( 'fastest_woocommerce_loop_product_title' ) ) {
 	function fastest_woocommerce_loop_product_title() {
 		global $product;
 
-		$link    = apply_filters( 'woocommerce_loop_product_link', get_the_permalink(), $product );
 		$classes = apply_filters( 'woocommerce_product_loop_title_classes', 'woocommerce-loop-product__title' );
 
 		printf(
-			'<h2 class="%1$s"><a href="%2$s">%3$s</a></h2>',
+			'<h2 class="%1$s"><a href="%2$s" rel="nofollow">%3$s</a></h2>',
 			esc_attr( $classes ),
-			esc_url( $link ),
+			esc_url( fastest_woocommerce_loop_card_link( $product ) ),
 			esc_html( get_the_title() )
 		);
+	}
+}
+
+if ( ! function_exists( 'fastest_woocommerce_loop_card_link' ) ) {
+	/**
+	 * URL for the card image and title: same target as the card's button.
+	 *
+	 * Buy-now products go straight to checkout (see the buy-now section below);
+	 * variable / out-of-stock products fall back to WooCommerce's own button URL
+	 * (the product page), so the card never links somewhere the button doesn't.
+	 *
+	 * @param WC_Product $product Product.
+	 * @return string
+	 */
+	function fastest_woocommerce_loop_card_link( $product ) {
+		return $product instanceof WC_Product ? $product->add_to_cart_url() : get_the_permalink();
 	}
 }
 
