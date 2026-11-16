@@ -34,6 +34,47 @@ get_header('custom');
         height: auto;
     }
 
+    /* Call notice: keep heading + note on one line (this template only) */
+    .hero .call-notice,
+    .order-section .call-notice {
+        flex-wrap: nowrap;
+    }
+
+    .hero .call-notice > div,
+    .order-section .call-notice > div {
+        min-width: 0;
+        text-align: center;
+    }
+
+    .hero .call-notice strong,
+    .order-section .call-notice strong {
+        white-space: nowrap;
+        font-size: clamp(14px, 4.6vw, 25px);
+    }
+
+    .hero .call-notice p,
+    .order-section .call-notice p {
+        white-space: nowrap;
+        font-size: clamp(10px, 3.1vw, 17px);
+    }
+
+    @media (max-width: 480px) {
+
+        .hero .call-notice,
+        .order-section .call-notice {
+            padding: 12px 8px;
+            gap: 7px;
+        }
+
+        .hero .call-notice__icon,
+        .order-section .call-notice__icon {
+            flex-basis: 32px;
+            width: 32px;
+            height: 32px;
+            font-size: 18px;
+        }
+    }
+
     /* Product select banner (matches .call-notice: black + gold + red) */
     .grid-select-banner {
         max-width: 620px;
@@ -51,10 +92,11 @@ get_header('custom');
         padding: 14px 16px 12px;
         background: linear-gradient(135deg, #1f1f1f 0%, #000 100%);
         color: #FFD700;
-        font-size: clamp(20px, 4.5vw, 26px);
+        font-size: clamp(14px, 4.8vw, 26px);
         font-weight: 700;
         line-height: 1.35;
         letter-spacing: 0.3px;
+        white-space: nowrap;
         text-shadow: 0 2px 6px rgba(255, 215, 0, 0.25);
     }
 
@@ -78,10 +120,11 @@ get_header('custom');
         padding: 10px 14px;
         background: linear-gradient(135deg, #C41E3A 0%, #8e1428 100%);
         color: #fff;
-        font-size: clamp(15px, 3.5vw, 18px);
+        font-size: clamp(11px, 3.6vw, 18px);
         font-weight: 700;
         line-height: 1.4;
         overflow: hidden;
+        white-space: nowrap;
     }
 
     .customsimplediscout strong {
@@ -151,9 +194,19 @@ get_header('custom');
             margin-top: 18px;
         }
 
+        .gridtemplatetitle {
+            padding: 12px 8px 10px;
+            letter-spacing: 0;
+        }
+
         .customsimplediscout {
-            flex-wrap: wrap;
-            gap: 6px;
+            flex-wrap: nowrap;
+            gap: 5px;
+            padding: 9px 6px;
+        }
+
+        .customsimplediscout__badge {
+            padding: 2px 7px;
         }
     }
 </style>
