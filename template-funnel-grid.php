@@ -113,23 +113,48 @@ get_header('custom');
     }
 
     @keyframes gridShine {
-        0%, 60% { left: -60%; }
-        100% { left: 130%; }
+
+        0%,
+        60% {
+            left: -60%;
+        }
+
+        100% {
+            left: 130%;
+        }
     }
 
     @keyframes gridBadgePulse {
-        0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
-        50% { transform: scale(1.08); box-shadow: 0 0 0 6px rgba(255, 215, 0, 0); }
+
+        0%,
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+        }
+
+        50% {
+            transform: scale(1.08);
+            box-shadow: 0 0 0 6px rgba(255, 215, 0, 0);
+        }
     }
 
     @media (prefers-reduced-motion: reduce) {
+
         .customsimplediscout::before,
-        .customsimplediscout__badge { animation: none; }
+        .customsimplediscout__badge {
+            animation: none;
+        }
     }
 
     @media (max-width: 480px) {
-        .grid-select-banner { margin-top: 18px; }
-        .customsimplediscout { flex-wrap: wrap; gap: 6px; }
+        .grid-select-banner {
+            margin-top: 18px;
+        }
+
+        .customsimplediscout {
+            flex-wrap: wrap;
+            gap: 6px;
+        }
     }
 </style>
 
@@ -137,7 +162,8 @@ get_header('custom');
 <section class="hero">
 
     <div class="hero-content">
-        <a class="call-notice call-notice--order" href="tel:8809648110184" aria-label="অর্ডার করতে কল করুন">
+        <a style="margin-top: 0px;" class="call-notice call-notice--order" href="tel:8809648110184"
+            aria-label="অর্ডার করতে কল করুন">
             <span class="call-notice__icon" aria-hidden="true">☎</span>
             <div>
                 <strong>অর্ডার করতে সরাসরি কল করুন</strong>
