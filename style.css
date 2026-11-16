@@ -1395,6 +1395,12 @@ img {
 	text-decoration: none;
 	cursor: pointer;
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	flex-wrap: nowrap;
+}
+
+.call-notice > div {
+	min-width: 0;
+	text-align: center;
 }
 
 .call-notice:hover,
@@ -1420,16 +1426,18 @@ img {
 .call-notice p {
 	margin: 0;
 	color: #fff;
-	font-size: clamp(14px, 3vw, 17px);
+	font-size: clamp(10px, 3.1vw, 17px);
 	line-height: 1.5;
+	white-space: nowrap;
 }
 
 .call-notice strong {
 	display: block;
 	margin-bottom: 4px;
 	color: #FFD700;
-	font-size: clamp(19px, 4vw, 25px);
+	font-size: clamp(14px, 4.6vw, 25px);
 	line-height: 1.35;
+	white-space: nowrap;
 }
 
 .call-notice__phone {
@@ -1463,15 +1471,15 @@ img {
 
 @media (max-width: 480px) {
 	.call-notice {
-		padding: 12px;
-		gap: 9px;
+		padding: 12px 8px;
+		gap: 7px;
 	}
 
 	.call-notice__icon {
-		flex-basis: 36px;
-		width: 36px;
-		height: 36px;
-		font-size: 20px;
+		flex-basis: 32px;
+		width: 32px;
+		height: 32px;
+		font-size: 18px;
 	}
 }
 

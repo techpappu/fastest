@@ -34,47 +34,6 @@ get_header('custom');
         height: auto;
     }
 
-    /* Call notice: keep heading + note on one line (this template only) */
-    .hero .call-notice,
-    .order-section .call-notice {
-        flex-wrap: nowrap;
-    }
-
-    .hero .call-notice > div,
-    .order-section .call-notice > div {
-        min-width: 0;
-        text-align: center;
-    }
-
-    .hero .call-notice strong,
-    .order-section .call-notice strong {
-        white-space: nowrap;
-        font-size: clamp(14px, 4.6vw, 25px);
-    }
-
-    .hero .call-notice p,
-    .order-section .call-notice p {
-        white-space: nowrap;
-        font-size: clamp(10px, 3.1vw, 17px);
-    }
-
-    @media (max-width: 480px) {
-
-        .hero .call-notice,
-        .order-section .call-notice {
-            padding: 12px 8px;
-            gap: 7px;
-        }
-
-        .hero .call-notice__icon,
-        .order-section .call-notice__icon {
-            flex-basis: 32px;
-            width: 32px;
-            height: 32px;
-            font-size: 18px;
-        }
-    }
-
     /* Product select banner (matches .call-notice: black + gold + red) */
     .grid-select-banner {
         max-width: 620px;
