@@ -683,6 +683,453 @@ ul.products li.product.outofstock img {
 }
 
 /**
+ * Thank-you page — offer box + video
+ *
+ * Markup:   template-parts/thankyou/offer.php  (part 1, Customizer on/off)
+ *           template-parts/thankyou/video.php  (part 2)
+ * Settings: inc/thankyou-page.php → Customizer → "Thank You Page".
+ *
+ * Mobile first; from 48em up the box gets more room and bigger type.
+ * Each colour box has its own tokens so the offer can be re-skinned in one place.
+ */
+.fastest-ty {
+	/* Palette */
+	--ty-green: #1e7a3c;
+	--ty-green-dark: #17402a;
+	--ty-green-bg: #e8f6ec;
+	--ty-green-border: #a9dcb6;
+	--ty-red: #c8281e;
+	--ty-red-bg: #fdece6;
+	--ty-red-border: #f6b9a4;
+	--ty-gold-bg: #fff4c7;
+	--ty-gold-border: #ecc65a;
+	--ty-gold-ink: #6b4a00;
+	--ty-blue: #1f4f99;
+	--ty-blue-bg: #eef4fc;
+	--ty-blue-line: #d3e0f2;
+	--ty-ink: #2b2b2b;
+	--ty-muted: #555;
+
+	--ty-radius: 14px;
+	--ty-gap: 12px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	max-width: 640px;
+	margin: 0 auto 24px;
+	color: var(--ty-ink);
+	text-align: center;
+}
+
+/* Inline SVG icons: stroke-based, inherit text colour. */
+.fastest-ty svg {
+	flex: none;
+	width: 1.1em;
+	height: 1.1em;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	vertical-align: -0.15em;
+}
+
+.fastest-ty p,
+.fastest-ty h2,
+.fastest-ty h3 {
+	margin: 0;
+}
+
+/* ---- Part 1: offer box ------------------------------------------------- */
+.fastest-ty-offer {
+	display: flex;
+	flex-direction: column;
+	gap: var(--ty-gap);
+}
+
+/* Header: brand, title, subtitle */
+.fastest-ty-offer__head {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.fastest-ty-offer__brand {
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--ty-green);
+}
+
+.fastest-ty-offer__title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 1.3;
+	color: var(--ty-green);
+}
+
+.fastest-ty-offer__subtitle {
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--ty-muted);
+}
+
+/* Two price cards: always side by side, even on small phones. */
+.fastest-ty-offer__cards {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--ty-gap);
+}
+
+.fastest-ty-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	min-width: 0;
+	padding: 14px 8px;
+	border: 1.5px solid;
+	border-radius: var(--ty-radius);
+}
+
+.fastest-ty-card__label,
+.fastest-ty-card__note {
+	font-size: 13px;
+	line-height: 1.4;
+}
+
+.fastest-ty-card__value {
+	font-size: 32px;
+	font-weight: 800;
+	line-height: 1.15;
+	overflow-wrap: anywhere;
+	font-variant-numeric: tabular-nums;
+}
+
+.fastest-ty-card--free {
+	color: var(--ty-green-dark);
+	background: var(--ty-green-bg);
+	border-color: var(--ty-green-border);
+}
+
+.fastest-ty-card--free .fastest-ty-card__value {
+	color: var(--ty-green);
+}
+
+.fastest-ty-card--charge {
+	color: var(--ty-red);
+	background: var(--ty-red-bg);
+	border-color: var(--ty-red-border);
+}
+
+/* "Pay on delivery" highlight */
+.fastest-ty-pay {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: 14px 12px;
+	background: var(--ty-gold-bg);
+	border: 1.5px solid var(--ty-gold-border);
+	border-radius: var(--ty-radius);
+}
+
+.fastest-ty-pay__label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	font-size: 15px;
+	font-weight: 600;
+	color: var(--ty-gold-ink);
+}
+
+.fastest-ty-pay__value {
+	font-size: 24px;
+	font-weight: 800;
+	line-height: 1.3;
+	color: var(--ty-red);
+}
+
+.fastest-ty-pay__note {
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--ty-gold-ink);
+}
+
+/* Call + feedback info list (left aligned, icon column). */
+.fastest-ty-info {
+	margin: 0;
+	padding: 4px 16px;
+	list-style: none;
+	text-align: left;
+	background: var(--ty-blue-bg);
+	border-radius: var(--ty-radius);
+}
+
+.fastest-ty-info__item {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	margin: 0;
+	padding: 12px 0;
+	font-size: 14px;
+	line-height: 1.55;
+	color: var(--ty-muted);
+}
+
+.fastest-ty-info__item + .fastest-ty-info__item {
+	border-top: 1px solid var(--ty-blue-line);
+}
+
+.fastest-ty-info__item > svg {
+	width: 20px;
+	height: 20px;
+	margin-top: 2px;
+	color: var(--ty-blue);
+}
+
+.fastest-ty-info__title {
+	display: block;
+	margin-bottom: 2px;
+	font-size: 16px;
+	color: var(--ty-blue);
+}
+
+/* ---- Part 2: video ----------------------------------------------------- */
+.fastest-ty-video {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.fastest-ty-video__heading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	font-size: 17px;
+	font-weight: 700;
+	line-height: 1.4;
+	color: var(--ty-ink);
+}
+
+/* Filled play icon next to the heading. */
+.fastest-ty-video__heading svg {
+	color: var(--ty-green);
+}
+
+.fastest-ty-video__heading svg circle {
+	fill: currentColor;
+}
+
+.fastest-ty-video__heading svg path {
+	fill: #fff;
+	stroke: #fff;
+	stroke-width: 1;
+}
+
+/* 16:9 box holding the autoplaying (muted) iframe + the sound overlay. */
+.fastest-ty-video__frame {
+	position: relative;
+	overflow: hidden;
+	aspect-ratio: 16 / 9;
+	background: var(--ty-green-dark);
+	border-radius: var(--ty-radius);
+	box-shadow: 0 6px 20px rgba(23, 64, 42, 0.18);
+}
+
+.fastest-ty-video__frame iframe {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+/*
+ * "Tap for sound" layer: covers the whole video (a tap inside the YouTube iframe
+ * can't be detected, so the first tap must land on this button). Transparent,
+ * so the playing video stays visible. Hidden by JS once sound is on.
+ */
+.fastest-ty-video__sound {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0 12px 14px;
+	color: #fff;
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	cursor: pointer;
+}
+
+.fastest-ty-video__sound[hidden] {
+	display: none;
+}
+
+/* Pill at the bottom of the video, gently pulsing to draw the tap. */
+.fastest-ty-video__sound-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 18px;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.2;
+	background: rgba(0, 0, 0, 0.72);
+	border: 1.5px solid rgba(255, 255, 255, 0.35);
+	border-radius: 999px;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+	animation: fastest-ty-pulse 1.8s ease-in-out infinite;
+}
+
+.fastest-ty-video__sound-pill svg {
+	width: 20px;
+	height: 20px;
+}
+
+.fastest-ty-video__sound:hover .fastest-ty-video__sound-pill {
+	background: var(--ty-green);
+}
+
+.fastest-ty-video__sound:focus-visible {
+	outline: 3px solid var(--ty-gold-border);
+	outline-offset: -3px;
+}
+
+@keyframes fastest-ty-pulse {
+
+	0%,
+	100% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.06);
+	}
+}
+
+/* Offer switched off: video is the only content, give it a little top air. */
+.fastest-ty--video-only {
+	margin-top: 8px;
+}
+
+/* ---- Small phones (< 360px) -------------------------------------------- */
+@media screen and (max-width: 359px) {
+
+	.fastest-ty-offer__title {
+		font-size: 19px;
+	}
+
+	.fastest-ty-card__value {
+		font-size: 26px;
+	}
+
+	.fastest-ty-pay__value {
+		font-size: 20px;
+	}
+}
+
+/* ---- Tablet / desktop (48em+) ------------------------------------------ */
+@media screen and (min-width: 48em) {
+
+	.fastest-ty {
+		--ty-gap: 16px;
+		gap: 24px;
+		max-width: 720px;
+		margin-bottom: 32px;
+	}
+
+	.fastest-ty-offer__brand {
+		font-size: 18px;
+	}
+
+	.fastest-ty-offer__title {
+		font-size: 30px;
+	}
+
+	.fastest-ty-offer__subtitle {
+		font-size: 16px;
+	}
+
+	.fastest-ty-card {
+		padding: 20px 12px;
+	}
+
+	.fastest-ty-card__label,
+	.fastest-ty-card__note {
+		font-size: 15px;
+	}
+
+	.fastest-ty-card__value {
+		font-size: 44px;
+	}
+
+	.fastest-ty-pay {
+		padding: 18px 16px;
+	}
+
+	.fastest-ty-pay__label {
+		font-size: 17px;
+	}
+
+	.fastest-ty-pay__value {
+		font-size: 30px;
+	}
+
+	.fastest-ty-pay__note {
+		font-size: 15px;
+	}
+
+	/* Call + feedback side by side, divider becomes vertical. */
+	.fastest-ty-info {
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: minmax(0, 1fr);
+		gap: 24px;
+		padding: 8px 20px;
+	}
+
+	.fastest-ty-info__item + .fastest-ty-info__item {
+		padding-left: 24px;
+		border-top: 0;
+		border-left: 1px solid var(--ty-blue-line);
+	}
+
+	.fastest-ty-info__item {
+		font-size: 15px;
+	}
+
+	.fastest-ty-video__heading {
+		font-size: 20px;
+	}
+
+	.fastest-ty-video__sound-pill {
+		padding: 12px 22px;
+		font-size: 17px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.fastest-ty-video__sound-pill {
+		animation: none;
+	}
+}
+
+/**
  * General WooCommerce components
  */
 

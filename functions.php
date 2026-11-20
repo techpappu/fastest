@@ -10,7 +10,7 @@
 
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define('_S_VERSION', '1.1.8');
+	define('_S_VERSION', '1.1.9');
 }
 
 /**
@@ -534,58 +534,11 @@ add_filter('body_class', function ($classes) {
 	return $classes;
 });
 
-add_action('woocommerce_before_thankyou', 'thankyou_video_with_sound_button', 5);
-function thankyou_video_with_sound_button($order_id)
-{
-	?>
-
-
-	<?php //include get_template_directory() . '/delivery-notice-thankyou.php'; 
-		?>
-	<br>
-	<!-- Video Thumbnail (Image) Section -->
-	<!-- <div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
-		<img id="youtube-thumbnail" src="<?php echo get_template_directory_uri(); ?>/assets/images/imgi_2_poster-11-y.webp" alt="YouTube Video Thumbnail" />
-		<div class="play-button">
-			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/play-button.webp" alt="Play YouTube Video">
-		</div>
-	</div> -->
-	<div class="youtube-thumbnail-container" id="youtube-thumbnail-container">
-		<iframe id="youtube-video" width="100%" height="360"
-			src="https://www.youtube.com/embed/uD6D2nx5BhA?autoplay=1&mute=1&playsinline=1&rel=0&controls=0&disablekb=1&fs=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&hl=en&loop=1&color=white&enablejsapi=1"
-			frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
-		</iframe>
-	</div>
-	<script src="https://www.youtube.com/iframe_api"></script>
-
-	<script>
-		let player;
-
-		function onYouTubeIframeAPIReady() {
-			player = new YT.Player('youtube-video', {
-				events: {
-					onReady: onPlayerReady
-				}
-			});
-		}
-
-		function onPlayerReady(event) {
-			event.target.playVideo();
-
-			// Browser will usually ignore this
-			event.target.unMute();
-			event.target.setVolume(100);
-		}
-	</script>
-	<!-- Modal (Lightbox) Section with YouTube Video Embed -->
-	<div id="video-modal" class="video-modal">
-		<span class="close-modal">&times;</span>
-		<!-- YouTube Embed Video -->
-		<iframe id="youtube-video" width="640" height="360" frameborder="0"
-			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	</div>
-	<?php
-}
+/**
+ * Thank-you page: offer summary box (Customizer on/off) + order video.
+ * Settings/hook: inc/thankyou-page.php, markup: template-parts/thankyou/.
+ */
+require get_template_directory() . '/inc/thankyou-page.php';
 
 add_action('woocommerce_product_options_general_product_data', 'add_product_slogan_field');
 
