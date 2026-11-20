@@ -946,10 +946,20 @@ body.woocommerce-order-received .woocommerce-order {
 }
 
 /* ---- Part 2: video ----------------------------------------------------- */
+/*
+ * Dark green panel around heading + video, so the video reads as its own
+ * block, separate from the light offer cards above and the order details below.
+ */
 .fastest-ty-video {
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: 12px;
+	padding: 14px 10px 10px;
+	background:
+		radial-gradient(120% 80% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 60%),
+		linear-gradient(160deg, #1f5a37 0%, var(--ty-green-dark) 100%);
+	border-radius: calc(var(--ty-radius) + 4px);
+	box-shadow: 0 10px 26px rgba(23, 64, 42, 0.28);
 }
 
 .fastest-ty-video__heading {
@@ -960,12 +970,12 @@ body.woocommerce-order-received .woocommerce-order {
 	font-size: 17px;
 	font-weight: 700;
 	line-height: 1.4;
-	color: var(--ty-ink);
+	color: #fff;
 }
 
-/* Filled play icon next to the heading. */
+/* Filled gold play icon next to the heading. */
 .fastest-ty-video__heading svg {
-	color: var(--ty-green);
+	color: var(--ty-gold-border);
 }
 
 .fastest-ty-video__heading svg circle {
@@ -973,19 +983,20 @@ body.woocommerce-order-received .woocommerce-order {
 }
 
 .fastest-ty-video__heading svg path {
-	fill: #fff;
-	stroke: #fff;
+	fill: var(--ty-green-dark);
+	stroke: var(--ty-green-dark);
 	stroke-width: 1;
 }
 
-/* 16:9 box holding the autoplaying (muted) iframe + the sound overlay. */
+/* 16:9 box holding the autoplaying (muted) iframe + the sound overlay.
+   Thin gold-tinted ring lifts it off the green panel. */
 .fastest-ty-video__frame {
 	position: relative;
 	overflow: hidden;
 	aspect-ratio: 16 / 9;
-	background: var(--ty-green-dark);
+	background: #000;
 	border-radius: var(--ty-radius);
-	box-shadow: 0 6px 20px rgba(23, 64, 42, 0.18);
+	box-shadow: 0 0 0 2px rgba(236, 198, 90, 0.55), 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
 .fastest-ty-video__frame iframe {
@@ -1148,6 +1159,11 @@ body.woocommerce-order-received .woocommerce-order {
 
 	.fastest-ty-info__item {
 		font-size: 15px;
+	}
+
+	.fastest-ty-video {
+		gap: 14px;
+		padding: 20px 20px 18px;
 	}
 
 	.fastest-ty-video__heading {
