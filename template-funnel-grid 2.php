@@ -148,7 +148,40 @@ get_header('custom');
         }
     }
 
+    /* Featured image (page thumbnail) — framed to match the banner */
+    .grid-hero-thumb {
+        max-width: 620px;
+        margin: 20px auto 0;
+        padding: 4px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #FFD700 0%, #b8860b 50%, #FFD700 100%);
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(255, 215, 0, 0.12);
+        line-height: 0;
+    }
+
+    .grid-hero-thumb img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        background: #1f2742;
+    }
+
+    .grid-hero-thumb+.grid-select-banner {
+        margin-top: 16px;
+    }
+
     @media (max-width: 480px) {
+        .grid-hero-thumb {
+            margin-top: 12px;
+            padding: 3px;
+            border-radius: 12px;
+        }
+
+        .grid-hero-thumb img {
+            border-radius: 9px;
+        }
+
         .grid-select-banner {
             margin-top: 18px;
         }
@@ -174,6 +207,22 @@ get_header('custom');
 <section class="hero">
 
     <div class="hero-content">
+        <?php if (has_post_thumbnail()) : ?>
+            <div class="grid-hero-thumb">
+                <?php
+                // Above-the-fold LCP image: responsive srcset, no lazy-load, high fetch priority.
+                // width/height attributes are kept so the browser reserves space (no layout shift).
+                the_post_thumbnail('large', array(
+                    'loading'       => false,
+                    'fetchpriority' => 'high',
+                    'decoding'      => 'async',
+                    'sizes'         => '(max-width: 652px) calc(100vw - 32px), 620px',
+                    'alt'           => wp_strip_all_tags(get_the_title()), // escaped by WP core
+                ));
+                ?>
+            </div>
+        <?php endif; ?>
+
         <div class="grid-select-banner">
             <div class="gridtemplatetitle">👇 আপনার পণ্যটি সিলেক্ট করুন 👇</div>
             <div class="customsimplediscout">
