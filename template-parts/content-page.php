@@ -10,9 +10,11 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php if ( ! fastest_is_checkout_page() ) : // No "Checkout" / "Order received" title on checkout pages. ?>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
+	<?php endif; ?>
 
 	<?php fastest_post_thumbnail(); ?>
 

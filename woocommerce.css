@@ -701,10 +701,7 @@ ul.products li.product.outofstock img {
  * is the only card and the inner .woocommerce-order is flattened.
  */
 
-/* Hide the "Order received" page title. */
-body.woocommerce-order-received .entry-header {
-	display: none;
-}
+/* The page title is not printed on checkout pages: see template-parts/content-page.php. */
 
 body.woocommerce-order-received .entry-content {
 	margin: 0;
