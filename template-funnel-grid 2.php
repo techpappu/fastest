@@ -159,12 +159,37 @@ get_header('custom');
         line-height: 0;
     }
 
-    .grid-hero-thumb img {
-        display: block;
-        width: 100%;
-        height: auto;
+    /* Box shape is locked by an inline aspect-ratio taken from the image itself,
+       so no other CSS/plugin can resize it while the image is loading. */
+    .grid-hero-thumb__media {
+        position: relative;
+        overflow: hidden;
         border-radius: 10px;
-        background: #1f2742;
+        background: linear-gradient(110deg, #2a375f 30%, #3d4c7c 50%, #2a375f 70%);
+        background-size: 200% 100%;
+        animation: gridThumbShimmer 1.4s linear infinite;
+    }
+
+    .grid-hero-thumb__media img {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none;
+        object-fit: cover;
+    }
+
+    @keyframes gridThumbShimmer {
+        to {
+            background-position: -200% 0;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .grid-hero-thumb__media {
+            animation: none;
+        }
     }
 
     .grid-hero-thumb+.grid-select-banner {
@@ -178,7 +203,7 @@ get_header('custom');
             border-radius: 12px;
         }
 
-        .grid-hero-thumb img {
+        .grid-hero-thumb__media {
             border-radius: 9px;
         }
 
@@ -207,19 +232,27 @@ get_header('custom');
 <section class="hero">
 
     <div class="hero-content">
-        <?php if (has_post_thumbnail()) : ?>
+        <?php
+        $grid_thumb_id = get_post_thumbnail_id();
+        if ($grid_thumb_id) :
+            // Real image proportions → the box has its final shape on first paint.
+            $grid_thumb_meta  = wp_get_attachment_metadata($grid_thumb_id);
+            $grid_thumb_ratio = (!empty($grid_thumb_meta['width']) && !empty($grid_thumb_meta['height']))
+                ? (int) $grid_thumb_meta['width'] . ' / ' . (int) $grid_thumb_meta['height']
+                : '16 / 9';
+        ?>
             <div class="grid-hero-thumb">
-                <?php
-                // Above-the-fold LCP image: responsive srcset, no lazy-load, high fetch priority.
-                // width/height attributes are kept so the browser reserves space (no layout shift).
-                the_post_thumbnail('large', array(
-                    'loading'       => false,
-                    'fetchpriority' => 'high',
-                    'decoding'      => 'async',
-                    'sizes'         => '(max-width: 652px) calc(100vw - 32px), 620px',
-                    'alt'           => wp_strip_all_tags(get_the_title()), // escaped by WP core
-                ));
-                ?>
+                <div class="grid-hero-thumb__media" style="aspect-ratio: <?php echo esc_attr($grid_thumb_ratio); ?>;">
+                    <?php
+                    // Above-the-fold LCP image: responsive srcset, no lazy-load, high fetch priority.
+                    echo wp_get_attachment_image($grid_thumb_id, 'large', false, array(
+                        'loading'       => false,
+                        'fetchpriority' => 'high',
+                        'sizes'         => '(max-width: 652px) calc(100vw - 32px), 620px',
+                        'alt'           => wp_strip_all_tags(get_the_title()), // escaped by WP core
+                    ));
+                    ?>
+                </div>
             </div>
         <?php endif; ?>
 
